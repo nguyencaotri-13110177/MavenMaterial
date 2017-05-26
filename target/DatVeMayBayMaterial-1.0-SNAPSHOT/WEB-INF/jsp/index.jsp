@@ -157,11 +157,11 @@
                     <li><a href="#"><spring:message code="lable.index.TicketingGuide"/></a></li>
                     <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
                     <li>
-                        <ul id="dropdown2" class="dropdown-content">
+                        <ul id="dropdown1" class="dropdown-content">
                             <li><a href="?lang=en">Tiếng anh</a></li>
                             <li><a href="?lang=vi">Tiếng việt</a></li>
                         </ul>
-                        <a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">language</i><spring:message code="lable.index.ChooseLanguage"/></a>
+                        <a class="btn dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons left">language</i><spring:message code="lable.index.ChooseLanguage"/></a>
                     </li>
                 </ul>
 
