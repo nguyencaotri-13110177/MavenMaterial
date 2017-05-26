@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
 
        
        xsi:schemaLocation=
@@ -25,5 +26,20 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    
+    <!--
+    khai báo đa ngôn ngữ trong spring
+    -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+          p:basenames="/WEB-INF/i18n/messages"
+          p:defaultEncoding="UTF-8" />
+    
+    <mvc:interceptors>    
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
+    </mvc:interceptors>
+ 
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"
+          p:defaultLocale="vi" /><!--Chọn ngôn ngữ default-->
  
 </beans>
