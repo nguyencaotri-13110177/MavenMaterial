@@ -168,17 +168,15 @@
 
                 <!-- menu ở chế độ mobile  -->
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">Hướng dẫn tìm vé</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#"><spring:message code="lable.index.Home"/></a></li>
+                    <li><a href="#"><spring:message code="lable.index.TicketingGuide"/></a></li>
+                    <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
                     <li>
-                        <div class="input-field col ">
-                            <select class="icons">
-                                <option value="" data-icon="resources/img/TiengViet.png" class="left circle">Tiếng Việt</option>
-                                <option value="" data-icon="resources/img/English.png" class="left circle">English</option>
-                            </select>
-                            <label>Chọn ngôn ngữ</label>
-                        </div>
+                        <ul id="dropdown2" class="dropdown-content">
+                            <li><a href="?lang=en">Tiếng anh</a></li>
+                            <li><a href="?lang=vi">Tiếng việt</a></li>
+                        </ul>
+                        <a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">language</i><spring:message code="lable.index.ChooseLanguage"/></a>
                     </li>
 
                 </ul>
