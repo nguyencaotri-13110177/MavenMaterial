@@ -82,9 +82,9 @@
                         <div class="col s12">
                             <div class="card-panel ">
                                 <span>2. Vui lòng chuyển khoản đến<br>
-                                    <h3>${TenNganHang}</h3><br>
-                                    Số tài khoản: 9704 1800 5909 9440<br>
-                                    Chủ tài khoản:           Đại lý vé máy bay T&T<br>
+                                    <h3>Vietinbak</h3><br>
+                                    Số tài khoản: 9704 1552 4814 8589<br>
+                                    Chủ tài khoản:           Nguyen Cao Tri<br>
                                     Nội dung thanh toán:     Thanh toán đặt chỗ 121234<br>
                                     Số tiền chuyển khoản:    1.834.935 VND<br>
                                     <p style="color:red;">Lưu ý: Chuyển đúng số tiền chính xác đến 3 số cuối.</p>

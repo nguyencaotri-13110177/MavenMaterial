@@ -67,7 +67,7 @@
 
                 <div class="row">
                     <div class="col s12">
-                        <h4>Hướng dẫn thanh toán chuyển khoản</h4>
+                        <h4>Hướng dẫn thanh toán qua MOMO</h4>
                         <h6 style="color: red">! Hướng dẫn thanh toán đã được gởi vào email của bạn</h6>
                     </div>
                     <div class="col s12">
@@ -81,13 +81,10 @@
                         
                         <div class="col s12">
                             <div class="card-panel ">
-                                <span>2. Vui lòng chuyển khoản đến<br>
-                                    <h3>Vietinbak</h3><br>
-                                    Số tài khoản: 9704 1552 4814 8589<br>
-                                    Chủ tài khoản:           Nguyen Cao Tri<br>
-                                    Nội dung thanh toán:     Thanh toán đặt chỗ 121234<br>
-                                    Số tiền chuyển khoản:    1.834.935 VND<br>
-                                    <p style="color:red;">Lưu ý: Chuyển đúng số tiền chính xác đến 3 số cuối.</p>
+                                <span>2. Thanh toán<br>
+                                    Mã thanh toán MOMO: 9704 1800 5909 9440<br> 
+                                    Số tiền:    1.834.935 VND<br>
+                                    <p style="color:red;">Lưu ý: Nếu thanh toán qua cửa hàng phải yêu cầu lấy hóa đơn</p>
                                 </span>
                             </div>
                         </div>
