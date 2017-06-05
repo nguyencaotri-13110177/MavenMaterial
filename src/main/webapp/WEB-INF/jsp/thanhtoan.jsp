@@ -17,6 +17,30 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
+        
+        <!--Script Zendesk Chat Support-->
+        <script type="text/javascript">
+            window.$zopim || (function (d, s) {
+                var z = $zopim = function (c) {
+                    z._.push(c)
+                }, $ = z.s =
+                        d.createElement(s), e = d.getElementsByTagName(s)[0];
+                z.set = function (o) {
+                    z.set.
+                            _.push(o)
+                };
+                z._ = [];
+                z.set._ = [];
+                $.async = !0;
+                $.setAttribute("charset", "utf-8");
+                $.src = "https://v2.zopim.com/?4rUu7hwQ8jR6rCP4Uw2Qa1HkgzsRvj5F";
+                z.t = +new Date;
+                $.
+                        type = "text/javascript";
+                e.parentNode.insertBefore($, e)
+            })(document, "script");
+        </script>
+        <!--End of Zendesk Chat Script-->
 
 
 
@@ -67,39 +91,39 @@
 
                 <div class="row">
                     <div class="col s12">
-                        <h4>Chọn hình thức thanh toán</h4>
+                        <h4><spring:message code="thanhtoan.ChooseAFormOfPayment"/></h4>
                     </div>
                     <div class="col s12">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
-                                <div class="collapsible-header"><i class="material-icons">polymer</i>Cổng thanh toán NGÂN LƯỢNG</div>
+                                <div class="collapsible-header"><i class="material-icons">polymer</i><spring:message code="thanhtoan.PaymentGatewayNGANLUONG"/></div>
                                 <div class="collapsible-body">
                                     <img src="resources/img/nganluong.png"  height="90" width="50%">
-                                    <p>Thanh toán được thực hiện qua cổng thanh toán trực tuyến NGANLUONG.VN<br>
-                                        Lưu ý:<br>
-                                        - Nếu chọn thanh toán Online, thì thẻ phải được kích hoạt tính năng thanh toán Online.<br>
+                                    <p><spring:message code="thanhtoan.abc"/><br>
+                                        <spring:message code="thanhtoan.comment2"/><br>
+                                        <spring:message code="thanhtoan.comment3"/><br>
                                     </p>
                                     
                                     <center><a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=datvemaybay2017@gmail.com&product_name=123123&price=150000&return_url=index&comments=Thanh toan cho ma dat cho 131421"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a></center>
                                 </div>
                             </li>
                             <li>
-                                <div class="collapsible-header"><i class="material-icons">label_outline</i>Trực tiếp tại ngân hàng hoặc trụ ATM</div>
+                                <div class="collapsible-header"><i class="material-icons">label_outline</i><spring:message code="thanhtoan.DirectAtTheBankOrATM"/></div>
                                 <div class="collapsible-body">
                                     <img src="resources/img/banklink.png"  height="250" width="100%">
-                                    <p>Bạn có thể chuyển tiền mặt tại quầy giao dịch hoặc chuyển khoản qua trụ ATM<br>
-                                        Lưu ý:<br>
-                                        - Thẻ của bạn phải là loại thẻ chuyển khoảng cho ngân khác được.<br>
-                                        - Phí chuyển khoản sẽ do người chuyển trả.
+                                    <p><spring:message code="thanhtoan.comment4"/><br>
+                                        <spring:message code="thanhtoan.comment5"/><br>
+                                        <spring:message code="thanhtoan.comment6"/><br>
+                                        <spring:message code="thanhtoan.comment7"/>
                                     </p>
                                     <div><center><a class="waves-effect waves-light btn" href="chuyenkhoan">Thanh Toán<i class="material-icons right">send</i></a></center></div>
                                 </div>
                             </li>
                            
                             <li>
-                                <div class="collapsible-header"><i class="material-icons">lock</i>Ví điện tử MOMO</div>
+                                <div class="collapsible-header"><i class="material-icons">lock</i><spring:message code="thanhtoan.MOMOE-Wallet"/></div>
                                 <div class="collapsible-body">
-                                    <p>Bạn thanh toán trực tiếp qua ứng dụng MOMO hoặc tại chuỗi các cửa hàng có hỗ trợ thanh toán qua MOMO dưới đây.
+                                    <p><spring:message code="thanhtoan.comment8"/>
                                     </p>
                                     <img src="resources/img/payoo.jpg"  height="100" width="80%" class="center">
                                     <br><br>
@@ -108,8 +132,8 @@
                             </li>
                             
                             <li>
-                                <div class="collapsible-header"><i class="material-icons">store</i>Tại cửa hàng</div>
-                                <div class="collapsible-body"><p>Danh sách các cửa hàng đại lý <a href="#">xem tại đây</a></p></div>
+                                <div class="collapsible-header"><i class="material-icons">store</i><spring:message code="thanhtoan.AtStore"/></div>
+                                <div class="collapsible-body"><p><spring:message code="thanhtoan.comment9"/> <a href="#"><spring:message code="thanhtoan.comment10"/></a></p></div>
                             </li>
                         </ul>
                     </div>
