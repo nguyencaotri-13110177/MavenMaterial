@@ -116,7 +116,7 @@
                                         <spring:message code="thanhtoan.comment6"/><br>
                                         <spring:message code="thanhtoan.comment7"/>
                                     </p>
-                                    <div><center><a class="waves-effect waves-light btn" href="chuyenkhoan">Thanh Toán<i class="material-icons right">send</i></a></center></div>
+                                    <div><center><a class="waves-effect waves-light btn" href="chuyenkhoan"><spring:message code="thanhtoan.button.thanhtoan"/><i class="material-icons right">send</i></a></center></div>
                                 </div>
                             </li>
                            
@@ -127,7 +127,7 @@
                                     </p>
                                     <img src="resources/img/payoo.jpg"  height="100" width="80%" class="center">
                                     <br><br>
-                                    <div><center><a class="waves-effect waves-light btn" href="momo">Thanh Toán<i class="material-icons right">send</i></a></center></div>
+                                    <div><center><a class="waves-effect waves-light btn" href="momo"><spring:message code="thanhtoan.button.thanhtoan"/><i class="material-icons right">send</i></a></center></div>
                                 </div>
                             </li>
                             

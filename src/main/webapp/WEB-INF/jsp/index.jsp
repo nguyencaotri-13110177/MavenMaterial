@@ -50,8 +50,8 @@
                 var apiKey,
                         apca,
                         params = {
-                            secret: 'ec657e8ef6bd074',
-                            key: 'b04f63abe1',
+                            secret: '7f970acb429665a',
+                            key: '765cf60c3f',
                             limit: 10
                         };
 
@@ -298,7 +298,12 @@
                                                 </div>
                                             </div>
 
-                                            <center><a class="waves-effect waves-light btn"><i class="material-icons left">search</i><spring:message code="lable.index.SearchTickets"/></a></center>
+                                            
+                                            <center>
+                                                <button class="btn waves-effect waves-light" type="submit" name="action"><spring:message code="lable.index.SearchTickets"/>
+                                                    <i class="material-icons left">search</i>
+                                                </button>
+                                            </center>
 
 
 
