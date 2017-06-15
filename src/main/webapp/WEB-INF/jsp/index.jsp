@@ -220,15 +220,15 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="row">
-                                        <form class="col s12">
+                                        <form class="col s12" modelAttribute="searchTicket" action="result" method="post">
                                             <div class="row">
                                                 <div class="input-field col s6">
-                                                    <input placeholder="<spring:message code="lable.index.From.comment"/>" id="first_name" type="text" class="validate autocomplete">
-                                                    <label for="first_name"><spring:message code="lable.index.From"/></label>
+                                                    <input name="MaSanBayDi" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDi" type="text" class="validate autocomplete">
+                                                    <label for="SanBayDi"><spring:message code="lable.index.From"/></label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    <input placeholder="<spring:message code="lable.index.From.comment"/>" id="first_name" type="text" class="validate autocomplete">
-                                                    <label for="first_name"><spring:message code="lable.index.To"/></label>
+                                                    <input name="MaSanBayDen" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDen" type="text" class="validate autocomplete">
+                                                    <label for="SanBayDen"><spring:message code="lable.index.To"/></label>
                                                 </div>
                                             </div>
 
@@ -241,18 +241,18 @@
 
                                             <div class="row">
                                                 <div class="input-field col s6">
-                                                    <label for="first_name"><spring:message code="lable.index.Departure"/></label>
-                                                    <input type="date" class="datepicker" placeholder="<spring:message code="lable.index.Departure.comment"/>" id="ngaydi">
+                                                    <label ><spring:message code="lable.index.Departure"/></label>
+                                                    <input name="NgayDi" type="date" class="datepicker" placeholder="<spring:message code="lable.index.Departure.comment"/>" id="ngaydi">
                                                 </div>
                                                 <div class="input-field col s6">
                                                     <label for="first_name"><spring:message code="lable.index.Return"/></label>
-                                                    <input type="date" class="datepicker" placeholder="<spring:message code="lable.index.Return.comment"/>" id="ngayve">
+                                                    <input name="NgayVe" type="date" class="datepicker" placeholder="<spring:message code="lable.index.Return.comment"/>" id="ngayve">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s4">
-                                                    <select>
+                                                    <select name="SLNguoiLon">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -266,8 +266,8 @@
                                                     <label><spring:message code="lable.index.Adults"/></label>
                                                 </div>
                                                 <div class="input-field col s4">
-                                                    <select>
-                                                        <option value="1">0</option>
+                                                    <select name="SLTreEm">
+                                                        <option value="0">0</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -282,8 +282,8 @@
                                                 </div>
                                                 <div class="input-field col s4">
 
-                                                    <select>
-                                                        <option value="1">0</option>
+                                                    <select name="SLEmBe">
+                                                        <option value="0">0</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -304,9 +304,6 @@
                                                     <i class="material-icons left">search</i>
                                                 </button>
                                             </center>
-
-
-
                                         </form>
                                     </div>
                                 </div>

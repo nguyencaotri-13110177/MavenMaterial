@@ -2,10 +2,28 @@ package com.example.flight.entity;
 
 public class SearchResult {
    
+    private int i;
+    private String id;
     private String airline, depart, arrive;
     private int duration;
     private String pricePerPerson;
 
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getAirline() {
         return airline;
     }
