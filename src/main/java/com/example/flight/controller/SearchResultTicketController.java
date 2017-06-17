@@ -43,7 +43,7 @@ public class SearchResultTicketController {
 
     private static final String APPLICATION_NAME = "FlightTicket";
 
-    private static final String API_KEY = "AIzaSyC5FYFXrSjH9Whx8gDey_ZHbUkh_sqj2lA";
+    private static final String API_KEY = "AIzaSyD5yzn8HF7V7ifsRiQJg4cU85ziQhcVr7Y";
 
     /**
      * Global instance of the HTTP transport.
@@ -116,7 +116,7 @@ public class SearchResultTicketController {
 
 
             TripOptionsRequest request = new TripOptionsRequest();
-            request.setSolutions(3);
+            request.setSolutions(19);
             request.setPassengers(passengers);
             request.setSlice(slices);
 
