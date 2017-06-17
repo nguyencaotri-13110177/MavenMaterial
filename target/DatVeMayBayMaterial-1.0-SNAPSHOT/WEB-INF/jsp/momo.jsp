@@ -73,10 +73,10 @@
                     <div class="col s12">
 
                         <div class="col s12">
-                            <div class="card-panel ">
-                                <span>1. Tiến hành thanh toán trước hh:mm hôm nay
-                                </span>
-                            </div>
+                                <div class="card-panel ">
+                                    <span>1. Tiến hành thanh toán trước hh:mm hôm nay
+                                    </span>
+                                </div>
                         </div>
                         
                         <div class="col s12">

@@ -38,6 +38,7 @@
 
     </head>
     <body>
+
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="#" class="brand-logo"><image src="resources/img/logo.png"></a>
@@ -78,87 +79,103 @@
         <div class="container">
             <div class="section">
 
-                <form:form>
-                    <div><h3>Flight information</h3></div>
-                    <div>Schedule: ${fOrigin} ==>> ${fDestination} </div>
-                    <div>${fAirline} | ${fAircraft} | ${fArrive} - ${fDepart}</div>
-                    <div>Type of ticket: Starter | <a href="#">More details</a></div>
-                    <div>Price: ${fPrice}</div>
-                </form:form>
+                <div class="row">
+                    <div class="col m7 ">
+                        <div class="card-panel ">
+                            <span>
+                                <div>
+                                    <form action="thanhtoan" >
+                                        <center><img src="resources/img/payer.gif" style="margin: left" width="50" height="50"><h5><b>Thông tin khách hàng thanh toán</b></h5></center><br>
+                                        <div class="row">
 
-                <form:form>
-                    <div><h3>Customer information</h3></div>
-                    <!-- for earth adult-->
-                    <div>
-                        <input value="Mr/Mrs/Mr/Miss">
-                        <input value="Last name">
-                        <input value="First name">
-                    </div>
-                    <!-- for earth child and senior-->
-                    <div>
-                        <!-- for earth child-->
-                        <input value="Brother/Sister">
-                        <input value="Full name">
-                        <input value="Date of birth">
-                        <!-- for earth senior-->
-                        <input value="Son/Daughter">
-                        <input value="Full name">
-                        <input value="Date of birth">
-                    </div>
-                    <!-- Infomation of contact ones -->
-                    <div>
-                        Email: <input value="Your email">
-                        Confirm your Email: <input value="Confirm your email">
-                    </div>
-                    <div>
-                        Phone number: <input value="Your phone number">
-                        Address: <input value="Your address">
-                        Country: <input value="Your country">
-                    </div>
-                </form:form>
+                                            <div class="row">
+                                                <div class="input-field col s6">
+                                                    <input id="last_name" type="text" class="validate">
+                                                    <label for="last_name">Họ tên</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input id="last_name" type="text" class="validate">
+                                                    <label for="last_name">CMND</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s6">
+                                                    <input id="last_name" type="text" class="validate">
+                                                    <label for="last_name">SDT</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input id="email" type="email" class="validate">
+                                                    <label for="email">Email</label>
+                                                </div>
+                                            </div>
 
-                <form:form>
-                    <div><h3>Luggage information</h3></div>
-                    <!-- -->
-                    <div>Hand luggage: Free up to 7kilogram/person/flight</div>
-                    <div>
-                        Way to go: 
-                        <input value="1/2/3/..."> person
-                        Luggage over:
-                        <input value="Nothing/15kilogram/...">
-                    </div>
-                </form:form>
 
-                <form:form>
-                    <div><h3>Pay information</h3></div>
-                    <!-- -->
-                    <div>Price standard: </div>
-                    <!-- for earth person/luggage -->
-                    <div>
-                        1/2/...Adult
-                        2.430.000 VND
-                    </div>
-                    <div><h3>Tax and service</h3></div>
-                    <!-- for earth person/luggage -->
-                    <div>
-                        1/2/...Adult
-                        1.430.000 VND
-                    </div>
-                    <!-- -->
-                    <div>Over luggage: </div>
-                    <div>
-                        430.000 VND
-                    </div>
-                </form:form>
 
-                <form:form>
-                    <div><h3>Pay way</h3></div>
-                    <div>Banking</div>
-                    <div>Online</div>
-                    <div>In office</div>
-                    <div>On your home</div>
-                </form:form>
-                <input value="Finish" type="submit">
+                                        </div>
+                                        <center><img src="resources/img/passanger.png" style="margin: left" width="50" height="50"><h5><b>Thông tin hành khách</b></h5></center><br>
+                                        <div class="row">
+
+                                            <div class="row">
+                                                <div class="input-field col s6">
+                                                    <input id="last_name" type="text" class="validate">
+                                                    <label for="last_name">Họ tên</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input id="last_name" type="text" class="validate">
+                                                    <label for="last_name">CMND</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s12">
+                                                    Ngày sinh:
+                                                    <div class="input-field inline">
+                                                        <div class="input-field col s4">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">Ngày</label>
+                                                        </div>
+                                                        <div class="input-field col s4">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">Tháng</label>
+                                                        </div>
+                                                        <div class="input-field col s4">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">Năm</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <center>
+                                            <button class="btn waves-effect waves-light" type="submit" name="action">Tiếp tục
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </center>
+                                    </form>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col m5 ">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="resources/img/ex1.jpg">
+                                <span class="card-title">Thông tin chuyến bay</span>
+                            </div>
+                            <div class="card-content">
+
+                                <div>Schedule: ${fOrigin} ==>> ${fDestination} </div>
+                                <div>${fAirline} | ${fAircraft} | ${fArrive} - ${fDepart}</div>
+                                <div>Type of ticket: Starter | <a href="#">More details</a></div>
+                                <div>Price: ${fPrice}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
