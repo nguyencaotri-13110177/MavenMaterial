@@ -18,28 +18,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
         
-        <!--Script Zendesk Chat Support-->
-        <script type="text/javascript">
-            window.$zopim || (function (d, s) {
-                var z = $zopim = function (c) {
-                    z._.push(c)
-                }, $ = z.s =
-                        d.createElement(s), e = d.getElementsByTagName(s)[0];
-                z.set = function (o) {
-                    z.set.
-                            _.push(o)
-                };
-                z._ = [];
-                z.set._ = [];
-                $.async = !0;
-                $.setAttribute("charset", "utf-8");
-                $.src = "https://v2.zopim.com/?4rUu7hwQ8jR6rCP4Uw2Qa1HkgzsRvj5F";
-                z.t = +new Date;
-                $.
-                        type = "text/javascript";
-                e.parentNode.insertBefore($, e)
-            })(document, "script");
-        </script>
+        <!--Script Zendesk Chat Support Live Chat-->
+        <script src="resources/js/livechat.js"></script>
         <!--End of Zendesk Chat Script-->
 
 
@@ -49,42 +29,7 @@
 
     </head>
     <body>
-        <nav class="white" role="navigation">
-            <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo"><image src="resources/img/logo.png"></a>
-
-                <!-- menu ở chế độ desktop  -->
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#"><spring:message code="lable.index.Home"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.TicketingGuide"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
-                    <li>
-                        <ul id="dropdown1" class="dropdown-content">
-                            <li><a href="?lang=en">Tiếng anh</a></li>
-                            <li><a href="?lang=vi">Tiếng việt</a></li>
-                        </ul>
-                        <a class="btn dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons left">language</i><spring:message code="lable.index.ChooseLanguage"/></a>
-                    </li>
-                </ul>
-
-
-                <!-- menu ở chế độ mobile  -->
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#"><spring:message code="lable.index.Home"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.TicketingGuide"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
-                    <li>
-                        <ul id="dropdown2" class="dropdown-content">
-                            <li><a href="?lang=en">Tiếng anh</a></li>
-                            <li><a href="?lang=vi">Tiếng việt</a></li>
-                        </ul>
-                        <a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">language</i><spring:message code="lable.index.ChooseLanguage"/></a>
-                    </li>
-
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
+        <%@ include file="/resources/ModuleDesign/navbar.jsp"%>
 
         <div class="container">
             <div class="section">
