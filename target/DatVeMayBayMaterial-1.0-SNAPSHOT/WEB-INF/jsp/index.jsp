@@ -17,8 +17,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
-        
-        
+
+
 
         <!--Script Zendesk Chat Support Live Chat-->
         <script src="resources/js/livechat.js"></script>
@@ -28,7 +28,6 @@
         <!-- API tim san bay  -->
         <script>
             $(function () {
-
                 var apiKey,
                         apca,
                         params = {
@@ -107,6 +106,8 @@
 
                         // this is necessary to allow html entities to display properly in the jqueryUI labels
                         $(this).autocomplete(autocompleteObj).data("ui-autocomplete")._renderItem = function (ul, item) {
+                            $("#process").hide();
+                            $("#process2").hide();
                             return $("<li></li>")
                                     .data("item.autocomplete", item)
                                     .append($("<a></a>").html(item.label))
@@ -123,30 +124,38 @@
 
         <!-- disable ngày về khi chọn 1 chiều -->
         <script>
-
-
-
             $(document).ready(function () {
-                document.getElementById("ngayve").disabled = true;
-
+                
                 $('#motchieu').change(function () {
-                    if ($(this).is(":checked")) {
-                        document.getElementById("ngayve").disabled = true;
-                        document.getElementById("ngayve").value = "";
-
-
-                    }
+                    $("#NgayVe").hide();
                 });
                 $('#khuhoi').change(function () {
-                    if ($(this).is(":checked")) {
-                        document.getElementById("ngayve").disabled = false;
-
-                    }
+                    $("#NgayVe").show();
                 });
-
-
             });
         </script>
+
+        <!-- hiển thị icon Process khi tìm Mã Sân Bay -->
+        <script>
+            function TimSanBayDi() {
+                var chatinput = document.getElementById("MaSanBayDi").value;
+                if (chatinput === "" || chatinput.length === 0 || chatinput === null)
+                {
+                    $("#process").hide();
+                } else
+                    $("#process").show();
+            }
+            
+            function TimSanBayDen() {
+                var chatinput = document.getElementById("MaSanBayDen").value;
+                if (chatinput === "" || chatinput.length === 0 || chatinput === null)
+                {
+                    $("#process2").hide();
+                } else
+                    $("#process2").show();
+            }
+        </script>
+
 
 
 
@@ -166,24 +175,24 @@
                                     <span class="card-title"><spring:message code="lable.index.Title"/></span>
                                 </div>
                                 <div class="card-content">
-                                    
+
                                     <div class="row">
-                                        
-                                        <form class="col s12" modelAttribute="searchTicket" action="result" method="post">
+
+                                        <form class="col s12" action="result" method="post">
                                             <div class="row">
                                                 <div class="input-field col s5">
-                                                    <input name="MaSanBayDi" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDi" type="text" class="validate autocomplete">
+                                                    <input onkeyup="TimSanBayDi()" name="MaSanBayDi" id="MaSanBayDi" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDi" type="text" class="validate autocomplete">
                                                     <label for="SanBayDi"><spring:message code="lable.index.From"/></label>                                                    
                                                 </div>
                                                 <div class="input-field col s1 left">
-                                                    <img src="resources/img/810.gif" hidden >
+                                                    <img src="resources/img/810.gif" hidden id="process" >
                                                 </div>
                                                 <div class="input-field col s5">
-                                                    <input name="MaSanBayDen" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDen" type="text" class="validate autocomplete">
+                                                    <input onkeyup="TimSanBayDen()" name="MaSanBayDen" id="MaSanBayDen" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDen" type="text" class="validate autocomplete">
                                                     <label for="SanBayDen"><spring:message code="lable.index.To"/></label>
                                                 </div>
                                                 <div class="input-field col s1">
-                                                    <img src="resources/img/810.gif" hidden >
+                                                    <img src="resources/img/810.gif" hidden id="process2">
                                                 </div>
                                             </div>
 
@@ -199,7 +208,7 @@
                                                     <label ><spring:message code="lable.index.Departure"/></label>
                                                     <input name="NgayDi" type="date" class="datepicker" placeholder="<spring:message code="lable.index.Departure.comment"/>" id="ngaydi">
                                                 </div>
-                                                <div class="input-field col s6">
+                                                <div class="input-field col s6" hidden id="NgayVe">
                                                     <label for="first_name"><spring:message code="lable.index.Return"/></label>
                                                     <input name="NgayVe" type="date" class="datepicker" placeholder="<spring:message code="lable.index.Return.comment"/>" id="ngayve">
                                                 </div>
