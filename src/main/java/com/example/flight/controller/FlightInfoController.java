@@ -101,15 +101,15 @@ public class FlightInfoController {
 
     @RequestMapping(value = "/a", method = RequestMethod.GET)
     public String a(@RequestParam("id") String id, ModelMap mm) {
-
+        
+        SearchResult2.id=id;
+        
         int n = SearchResult2.ListKetQua.size();
 
         for (int i = 0; i < n; i++) {
             if (SearchResult2.ListKetQua.get(i).getId().equals(id)) {
-                mm.addAttribute("KhoiHanh", SearchResult2.ListKetQua.get(i).getDepart());
-                mm.addAttribute("NoiDen", SearchResult2.ListKetQua.get(i).getArrive());
-                mm.addAttribute("Gia", SearchResult2.ListKetQua.get(i).getPricePerPerson());
-                
+                mm.addAttribute("searchResult", SearchResult2.ListKetQua.get(i));
+                SearchResult2.TongGiaTien=SearchResult2.ListKetQua.get(i).getTongTienText2();
             }
         }
 

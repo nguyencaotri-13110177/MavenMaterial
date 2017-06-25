@@ -1,5 +1,6 @@
 package com.example.flight.controller;
 
+import com.example.flight.entity.SearchResult2;
 import com.example.flight.entity.SearchTicket;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +16,11 @@ public class SearchTicketController {
     }
     
     @RequestMapping(value = "/thanhtoan", method = RequestMethod.GET)
-    public String thanhtoan() {
+    public String thanhtoan(ModelMap mm) {
+        
+        mm.addAttribute("id", SearchResult2.id);
+        mm.addAttribute("TongTien", SearchResult2.TongGiaTien);
+        
         return "thanhtoan";
     }
     

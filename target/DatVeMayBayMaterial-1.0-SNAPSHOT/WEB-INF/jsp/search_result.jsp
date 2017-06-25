@@ -45,21 +45,21 @@
                 <table  class="striped sortable">
                     <tr>
                         <th></th>
-                        <th>Airline</th>
-                        <th>Depart</th>
-                        <th>Arrive</th>
-                        <th>Duration</th>
-                        <th>Price per person</th>
+                        <th>Hãng</th>
+                        <th>Thời Gian Khởi Hành</th>
+                        <th>Thời Gian Đến</th>
+                        <th>Thời gian</th>
+                        <th>Tổng Giá Tiền</th>
                         <th>&nbsp;</th>
                     </tr>
                     <c:forEach var="sr" items="${searchResults}">
                         <tr>
-                            <td><img src="resources/img/${sr.airline}.png" width="50" height="20"></td>
-                            <td>${sr.airline}</td>
-                            <td>${sr.depart}</td>
-                            <td>${sr.arrive}</td>
-                            <td>${sr.duration}</td>
-                            <td>${sr.pricePerPerson}</td>
+                            <td><img src="resources/img/${sr.getHang()}.png" width="50" height="20"></td>
+                            <td>${sr.getHang()}</td>
+                            <td>${sr.getThoiGianKhoiHanh()}</td>
+                            <td>${sr.getThoiGianDen()}</td>
+                            <td>${sr.getKhoangCach()} phút</td>
+                            <td>${sr.getTongTienText()}</td>
                             <td><a href="a?id=${sr.id}">Choose</a></td>
                         </tr>  
                     </c:forEach>

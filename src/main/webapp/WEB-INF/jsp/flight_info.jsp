@@ -24,12 +24,22 @@
         <script src="resources/js/livechat.js"></script>
         <!--End of Zendesk Chat Script-->
 
-        
+
         <!--Event Xác nhận Email cung cấp là chính xác-->
         <script>
             function XacNhan() {
                 $("#ThongTinHanhKhach").show();
                 $("#NutXacNhan").hide();
+            }
+        </script>
+
+        <!--Event Xem Chi Tiết Gia-->
+        <script>
+            function XemChiTietGia() {
+                $("#ChiTietGia").show();
+            }
+            function AnChiTietGia() {
+                $("#ChiTietGia").hide();
             }
         </script>
 
@@ -91,39 +101,109 @@
                                         </div>
                                         <div hidden id="ThongTinHanhKhach">
                                             <center><img src="resources/img/passanger.png" style="margin: left" width="50" height="50"><h5><b>Thông tin hành khách</b></h5></center><br>
-                                            <div class="row">
 
-                                                <div class="row">
-                                                    <div class="input-field col s6">
-                                                        <input id="last_name" type="text" class="validate">
-                                                        <label for="last_name">Họ tên</label>
-                                                    </div>
-                                                    <div class="input-field col s6">
-                                                        <input id="last_name" type="text" class="validate">
-                                                        <label for="last_name">CMND</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s12">
-                                                        Ngày sinh:
-                                                        <div class="input-field inline">
-                                                            <div class="input-field col s4">
-                                                                <input id="last_name" type="text" class="validate">
-                                                                <label for="last_name">Ngày</label>
-                                                            </div>
-                                                            <div class="input-field col s4">
-                                                                <input id="last_name" type="text" class="validate">
-                                                                <label for="last_name">Tháng</label>
-                                                            </div>
-                                                            <div class="input-field col s4">
-                                                                <input id="last_name" type="text" class="validate">
-                                                                <label for="last_name">Năm</label>
-                                                            </div>
 
+                                            <c:forEach var="i" begin="1" end="${searchResult.getSLNguoiLon()}">
+                                                <h5 style="color: #4caf50">Hành khách người lớn</h5>
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">Họ tên</label>
+                                                        </div>
+                                                        <div class="input-field col s6">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">CMND</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            Ngày sinh:
+                                                            <div class="input-field inline">
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Ngày</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Tháng</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Năm</label>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </c:forEach>
+                                            <br>
+                                            <c:forEach var="i" begin="1" end="${searchResult.getSLTreEm()}">
+                                                <h5 style="color: #ea80fc">Hành khách trẻ em</h5>
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">Họ tên</label>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            Ngày sinh:
+                                                            <div class="input-field inline">
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Ngày</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Tháng</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Năm</label>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
+                                            <br>
+                                            <c:forEach var="i" begin="1" end="${searchResult.getSLEmBe()}">
+                                                <h5 style="color: #ff5722">Hành khách em bé</h5>
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="input-field col s6">
+                                                            <input id="last_name" type="text" class="validate">
+                                                            <label for="last_name">Họ tên</label>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            Ngày sinh:
+                                                            <div class="input-field inline">
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Ngày</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Tháng</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="last_name" type="text" class="validate">
+                                                                    <label for="last_name">Năm</label>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
 
                                             <center>
                                                 <button class="btn waves-effect waves-light" type="submit" name="action">Tiếp tục
@@ -146,8 +226,30 @@
                                 <span class="card-title">Thông tin chuyến bay</span>
                             </div>
                             <div class="card-content">
-
-                                <p>Khoi hanh: ${KhoiHanh}, Noi Den: ${NoiDen}, Gia: ${Gia}</p>
+                                <img src="resources/img/${searchResult.getHang()}.png">
+                                <p><img src="resources/img/NoiDi24.png"> Noi Di: ${searchResult.getNoiDi()} | Thời gian khởi hành: ${searchResult.getThoiGianKhoiHanh()}</p><br>
+                                <p><img src="resources/img/NoiDen24.png"> Noi Den: ${searchResult.getNoiDen()} | Thời gian đến: ${searchResult.getThoiGianDen()}</p><br>
+                                <p> Tổng Giá Vé: ${searchResult.getTongTienText()}</p><br>
+                                <a href="#!" onclick="XemChiTietGia()">Xem chi tiết giá vé</a><br>
+                                <div id="ChiTietGia" hidden>
+                                    =======================================<br>
+                                    Người lớn:<br>
+                                    - Giá 1 vé người lớn: ${searchResult.getGia1VeNguoiLon()}<br>
+                                    - Số lượng vé người lớn: ${searchResult.getSLNguoiLon()}<br>
+                                    =>Thành tiền: ${searchResult.getTongTienNguoiLon()}<br>
+                                    =======================================<br>
+                                    Trẻ Em:<br>
+                                    - Giá 1 vé trẻ em: ${searchResult.getGia1VeTreEm()}<br>
+                                    - Số lượng vé trẻ em: ${searchResult.getSLTreEm()}<br>
+                                    =>Thành tiền: ${searchResult.getTongTienTreEm()}<br>
+                                    =======================================<br>
+                                    Em Bé:<br>                                    
+                                    - Giá 1 vé em bé: ${searchResult.getGia1VeEmBe()}<br>
+                                    - Số lượng vé em bé: ${searchResult.getSLEmBe()}<br>
+                                    =>Thành tiền: ${searchResult.getTongTienEmBe()}<br>
+                                    =======================================<br>
+                                    <center><a href="#!" onclick="AnChiTietGia()">Ẩn tiết giá vé</a><br></center>
+                                </div>
                             </div>
 
                         </div>

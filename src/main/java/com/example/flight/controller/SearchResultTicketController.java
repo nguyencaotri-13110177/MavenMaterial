@@ -46,7 +46,7 @@ public class SearchResultTicketController {
 
     private static final String APPLICATION_NAME = "FlightTicket";
 
-    private static final String API_KEY = "AIzaSyC5FYFXrSjH9Whx8gDey_ZHbUkh_sqj2lA"; //Key giới hạn 50 lượt request/ 1 ngày
+    private static final String API_KEY = "AIzaSyDi2ToDM2o7TfmP6u0NGkwYbajYUbzjoyw"; //Key giới hạn 50 lượt request/ 1 ngày
 
     /**
      * Global instance of the HTTP transport.
@@ -130,27 +130,34 @@ public class SearchResultTicketController {
                 SearchResult searchResult = new SearchResult();
                 //Trip Option ID
                 id = tripResults.get(i).getId();
-                searchResult.setI(i);
+               
                 searchResult.setId(id);
                 //Slice
                 List<SliceInfo> sliceInfo = tripResults.get(i).getSlice();
                 for (int j = 0; j < sliceInfo.size(); j++) {
                     int duration = sliceInfo.get(j).getDuration();
-                    searchResult.setDuration(duration);
+                    searchResult.setKhoangCach(duration);
                     List<SegmentInfo> segInfo = sliceInfo.get(j).getSegment();
                     for (int k = 0; k < segInfo.size(); k++) {
                         //String bookingCode = segInfo.get(k).getBookingCode();
                         FlightInfo flightInfo = segInfo.get(k).getFlight();
                         //String flightNum = flightInfo.getNumber();
                         String flightCarrier = flightInfo.getCarrier();
-                        searchResult.setAirline(flightCarrier);
+                        
+                        //System.out.println(flightCarrier);
+                        
+                        searchResult.setHang(flightCarrier);
                         List<LegInfo> leg = segInfo.get(k).getLeg();
                         for (int l = 0; l < leg.size(); l++) {
                             //String aircraft = leg.get(l).getAircraft();
                             String arrivalTime = leg.get(l).getArrivalTime();
-                            searchResult.setArrive(arrivalTime);
+                            searchResult.setThoiGianDen(arrivalTime);
                             String departTime = leg.get(l).getDepartureTime();
-                            searchResult.setDepart(departTime);
+                            searchResult.setThoiGianKhoiHanh(departTime);
+                            String NoiDi = leg.get(l).getOrigin();
+                            searchResult.setNoiDi(NoiDi); //set nơi đi
+                            String NoiDen = leg.get(l).getDestination();
+                            searchResult.setNoiDen(NoiDen); //set nơi đến
 
                         }
                     }
@@ -165,20 +172,22 @@ public class SearchResultTicketController {
                 int SoTreEm = 0;
                 int SoEmBe = 0;
 
-                double MotVeNguoiLon = 0;
-                double MotVeTreEm = 0;
-                double MotVeEmBe = 0;
+                double Gia1VeNguoiLon = 0;
+                double Gia1VeTreEm = 0;
+                double Gia1VeEmBe = 0;
 
-                double TongVeNguoiLon = 0;
-                double TongVeTreEm = 0;
-                double TongVeEmBe = 0;
+                double TongTienNguoiLon = 0;
+                double TongTienTreEm = 0;
+                double TongTienEmBe = 0;
                 
                 for (int p = 0; p < priceInfo.size(); p++) {
                     try {
                         SoNguoiLon = priceInfo.get(p).getPassengers().getAdultCount();
-
-                        MotVeNguoiLon = Double.parseDouble(priceInfo.get(p).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
-                        TongVeNguoiLon = MotVeNguoiLon * SoNguoiLon;
+                        searchResult.setSLNguoiLon(SoNguoiLon);//set số lượng người lớn
+                        Gia1VeNguoiLon = Double.parseDouble(priceInfo.get(p).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
+                        searchResult.setGia1VeNguoiLon(Gia1VeNguoiLon); //set giá vé của một người lớn
+                        TongTienNguoiLon = Gia1VeNguoiLon * SoNguoiLon;
+                        searchResult.setTongTienNguoiLon(TongTienNguoiLon); //set tổng giá vé của người lớn
 
                     } catch (NullPointerException e) {
                         //khong nguoi lon
@@ -186,31 +195,39 @@ public class SearchResultTicketController {
 
                     try {
                         SoTreEm = priceInfo.get(p).getPassengers().getChildCount();
-
-                        MotVeTreEm = Double.parseDouble(priceInfo.get(p).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
-                        TongVeTreEm = MotVeTreEm * SoTreEm;
+                        searchResult.setSLTreEm(SoTreEm);
+                        Gia1VeTreEm = Double.parseDouble(priceInfo.get(p).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
+                        searchResult.setGia1VeTreEm(Gia1VeTreEm); //set gia 1 ve tre em
+                        TongTienTreEm = Gia1VeTreEm * SoTreEm;
+                        searchResult.setTongTienTreEm(TongTienTreEm);
                     } catch (NullPointerException e) {
                         //khong co tre em
                     }
 
                     try {
                         SoEmBe = priceInfo.get(p).getPassengers().getInfantInSeatCount();
-
-                        MotVeEmBe = Double.parseDouble(priceInfo.get(p).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
-                        TongVeEmBe = MotVeEmBe * SoEmBe;
+                        searchResult.setSLEmBe(SoEmBe);
+                        Gia1VeEmBe = Double.parseDouble(priceInfo.get(p).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
+                        searchResult.setGia1VeEmBe(Gia1VeEmBe);
+                        TongTienEmBe = Gia1VeEmBe * SoEmBe;
+                        searchResult.setTongTienEmBe(TongTienEmBe);
                     } catch (NullPointerException e) {
                         //Khong co em be
                     }
                 }
-                ThanhTien = TongVeNguoiLon + TongVeTreEm + TongVeEmBe;
+                ThanhTien = TongTienNguoiLon + TongTienTreEm + TongTienEmBe;
                 
                 NumberFormat formatter = new DecimalFormat("#0");
-                searchResult.setPricePerPerson(String.valueOf(formatter.format(ThanhTien))+" "+priceInfo.get(0).getSaleTotal().substring(0, 3)); //lấy lại đơn vị tiền tệ
+                searchResult.setTongTien(ThanhTien);  //set tổng tiền
+                searchResult.setTongTienText(String.valueOf(formatter.format(ThanhTien))+" "+priceInfo.get(0).getSaleTotal().substring(0, 3)); //lấy lại đơn vị tiền tệ
+                searchResult.setTongTienText2(String.valueOf(formatter.format(ThanhTien))); //lấy lại đơn vị tiền tệ
                 
                 SearchResult2.ListKetQua=searchResults;
                 
                 searchResults.add(searchResult);
+                
             }
+            
 
         } catch (IOException e) {
             System.out.println(e);
@@ -223,23 +240,5 @@ public class SearchResultTicketController {
         return "search_result";
     }
 
-    @RequestMapping(value = "/result", method = RequestMethod.GET)
-    public String demo(ModelMap model) {
-
-        List<SearchResult> searchResults = new ArrayList<>();
-
-        for (int i = 0; i < 5; i++) {
-            SearchResult searchResult = new SearchResult();
-            searchResult.setId("id" + i);
-            searchResult.setAirline("Airline " + i);
-            searchResult.setDepart("Depart " + i);
-            searchResult.setArrive("Arrive " + i);
-            searchResult.setDuration(i);
-            searchResult.setPricePerPerson("Price per person " + i);
-            searchResults.add(searchResult);
-        }
-
-        model.addAttribute("searchResults", searchResults);
-        return "search_result";
-    }
+ 
 }
