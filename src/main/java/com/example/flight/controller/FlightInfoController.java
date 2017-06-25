@@ -1,5 +1,6 @@
 package com.example.flight.controller;
 
+import com.example.flight.entity.SearchResult2;
 import com.example.flight.resdata.FlightInformation;
 import com.google.api.services.qpxExpress.model.LegInfo;
 import com.google.api.services.qpxExpress.model.PricingInfo;
@@ -35,12 +36,11 @@ public class FlightInfoController {
 
         //Tính tổng giá tiền (tính luôn tiền thuế)
         double ThanhTien = 0;
-        
+
         int SoNguoiLon = 0;
         int SoTreEm = 0;
         int SoEmBe = 0;
-        
-        
+
         double MotVeNguoiLon = 0;
         double MotVeTreEm = 0;
         double MotVeEmBe = 0;
@@ -53,17 +53,17 @@ public class FlightInfoController {
 
             try {
                 SoNguoiLon = price.get(i).getPassengers().getAdultCount();
-               
+
                 MotVeNguoiLon = Double.parseDouble(price.get(i).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
                 TongVeNguoiLon = MotVeNguoiLon * SoNguoiLon;
-                
+
             } catch (NullPointerException e) {
                 //khong nguoi lon
             }
 
             try {
                 SoTreEm = price.get(i).getPassengers().getChildCount();
-                
+
                 MotVeTreEm = Double.parseDouble(price.get(i).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
                 TongVeTreEm = MotVeTreEm * SoTreEm;
             } catch (NullPointerException e) {
@@ -72,15 +72,15 @@ public class FlightInfoController {
 
             try {
                 SoEmBe = price.get(i).getPassengers().getInfantInSeatCount();
-                
+
                 MotVeEmBe = Double.parseDouble(price.get(i).getSaleTotal().substring(3)); //Loại bỏ 3 ký tự đầu trong giá VND
                 TongVeEmBe = MotVeEmBe * SoEmBe;
             } catch (NullPointerException e) {
                 //Khong co em be
             }
 
-          }
-        
+        }
+
         ThanhTien = TongVeNguoiLon + TongVeTreEm + TongVeEmBe;
 
         System.out.println("so nguoi lon " + SoNguoiLon);
@@ -95,6 +95,23 @@ public class FlightInfoController {
         model.addAttribute("fArrive", leg.get(0).getArrivalTime());
         model.addAttribute("fDepart", leg.get(0).getDepartureTime());
         model.addAttribute("fPrice", price.get(0).getBaseFareTotal());
+
+        return "flight_info";
+    }
+
+    @RequestMapping(value = "/a", method = RequestMethod.GET)
+    public String a(@RequestParam("id") String id, ModelMap mm) {
+
+        int n = SearchResult2.ListKetQua.size();
+
+        for (int i = 0; i < n; i++) {
+            if (SearchResult2.ListKetQua.get(i).getId().equals(id)) {
+                mm.addAttribute("KhoiHanh", SearchResult2.ListKetQua.get(i).getDepart());
+                mm.addAttribute("NoiDen", SearchResult2.ListKetQua.get(i).getArrive());
+                mm.addAttribute("Gia", SearchResult2.ListKetQua.get(i).getPricePerPerson());
+                
+            }
+        }
 
         return "flight_info";
     }

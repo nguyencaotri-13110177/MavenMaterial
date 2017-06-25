@@ -147,10 +147,7 @@
                             </div>
                             <div class="card-content">
 
-                                <div>Schedule: ${fOrigin} ==>> ${fDestination} </div>
-                                <div>${fAirline} | ${fAircraft} | ${fArrive} - ${fDepart}</div>
-                                <div>Type of ticket: Starter | <a href="#">More details</a></div>
-                                <div>Price: ${fPrice}</div>
+                                <p>Khoi hanh: ${KhoiHanh}, Noi Den: ${NoiDen}, Gia: ${Gia}</p>
                             </div>
 
                         </div>

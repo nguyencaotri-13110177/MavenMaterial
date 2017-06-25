@@ -60,7 +60,7 @@
                             <td>${sr.arrive}</td>
                             <td>${sr.duration}</td>
                             <td>${sr.pricePerPerson}</td>
-                            <td><a href="flight-info?v&id=${sr.id}">Choose</a></td>
+                            <td><a href="a?id=${sr.id}">Choose</a></td>
                         </tr>  
                     </c:forEach>
                 </table>
