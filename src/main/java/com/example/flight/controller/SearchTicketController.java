@@ -21,7 +21,6 @@ public class SearchTicketController {
     
     @RequestMapping(value = "/chuyenkhoan", method = RequestMethod.GET)
     public String chuyenkhoan(ModelMap mm) {
-        
         return "chuyenkhoan";
     }
     
@@ -30,8 +29,6 @@ public class SearchTicketController {
     
     @RequestMapping(value = "/momo", method = RequestMethod.GET)
     public String momo() {
-        
-        
         return "momo";
     }
     

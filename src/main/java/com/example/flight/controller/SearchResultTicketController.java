@@ -43,12 +43,14 @@ public class SearchResultTicketController {
 
     private static final String APPLICATION_NAME = "FlightTicket";
 
-    private static final String API_KEY = "AIzaSyD5yzn8HF7V7ifsRiQJg4cU85ziQhcVr7Y";
+    private static final String API_KEY = "AIzaSyD5yzn8HF7V7ifsRiQJg4cU85ziQhcVr7Y"; //Key giới hạn 50 lượt request/ 1 ngày
 
     /**
      * Global instance of the HTTP transport.
      */
     private static HttpTransport httpTransport;
+
+    
 
     /**
      * Global instance of the JSON factory.
@@ -57,7 +59,9 @@ public class SearchResultTicketController {
 
     @RequestMapping(value = "/result", method = RequestMethod.POST)
     public String resultSearch(ModelMap model, @RequestParam(value = "MaSanBayDi") String MaSanBayDi, @RequestParam(value = "MaSanBayDen") String MaSanBayDen, @RequestParam(value = "NgayDi") String NgayDi, @RequestParam(value = "SLNguoiLon") int SLNguoiLon, @RequestParam(value = "SLTreEm") int SLTreEm, @RequestParam(value = "SLEmBe") int SLEmBe) throws ParseException {
+
         
+
         //Đổi định dạng ngày đi
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd MMM, yyyy");  //convert string date type
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
@@ -67,11 +71,11 @@ public class SearchResultTicketController {
             Date ngaydi = formatter1.parse(NgayDi);
             //System.out.println(ngaydi);
             //System.out.println(formatter2.format(ngaydi));
-            NgayDi=formatter2.format(ngaydi);
+            NgayDi = formatter2.format(ngaydi);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
+
 //        //Đổi định dạng ngày về
 //        try {
 //
@@ -82,8 +86,6 @@ public class SearchResultTicketController {
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
-        
-        
         List<SearchResult> searchResults = new ArrayList<>();
         try {
             httpTransport = GoogleNetHttpTransport.newTrustedTransport();
@@ -91,8 +93,8 @@ public class SearchResultTicketController {
             PassengerCounts passengers = new PassengerCounts();
             passengers.setAdultCount(SLNguoiLon); // Price[1] //Số lượng người lớn
             passengers.setChildCount(SLTreEm); // Price[2] //Số lượng trẻ em
-            passengers.setSeniorCount(SLEmBe); //Số lượng Em Bé
-            passengers.setInfantInSeatCount(0); // Price[3]
+            passengers.setSeniorCount(0); 
+            passengers.setInfantInSeatCount(SLEmBe); // //Số lượng Em Bé
             passengers.setInfantInLapCount(0); // Price[4]
 
             List<SliceInput> slices = new ArrayList<>();
@@ -109,14 +111,9 @@ public class SearchResultTicketController {
             System.out.println(SLTreEm);
             System.out.println(SLEmBe);
             System.out.println(NgayDi);
-            
-            
-            
-            
-
 
             TripOptionsRequest request = new TripOptionsRequest();
-            request.setSolutions(19);
+            request.setSolutions(19);//Lấy 19 kết quả đầu tiên
             request.setPassengers(passengers);
             request.setSlice(slices);
 
@@ -176,7 +173,7 @@ public class SearchResultTicketController {
         } catch (IOException e) {
             System.out.println(e);
             return "loi1";
-            
+
         } catch (GeneralSecurityException t) {
             return "loi2";
         }
