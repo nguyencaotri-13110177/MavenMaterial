@@ -7,6 +7,7 @@ public class SearchResult {
     private String airline, depart, arrive;
     private int duration;
     private String pricePerPerson;
+    private double saleTotal;
 
     public int getI() {
         return i;
@@ -62,5 +63,15 @@ public class SearchResult {
 
     public void setPricePerPerson(String pricePerPerson) {
         this.pricePerPerson = pricePerPerson;
-    }  
+    }
+
+    public double getSaleTotal() {
+        return saleTotal;
+    }
+
+    public void setSaleTotal(double saleTotal) {
+        this.saleTotal = saleTotal;
+    }
+    
+    
 }
