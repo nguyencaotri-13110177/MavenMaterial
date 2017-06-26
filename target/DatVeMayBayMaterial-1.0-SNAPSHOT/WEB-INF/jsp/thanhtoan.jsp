@@ -49,7 +49,7 @@
                                         <spring:message code="thanhtoan.comment3"/><br>
                                     </p>
                                     
-                                    <center><a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=datvemaybay2017@gmail.com&product_name=${id}&price=${TongTien}&return_url=index&comments=Thanh toan cho ma dat cho id=${id}"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a></center>
+                                    <center><a href="https://www.nganluong.vn/button_payment.php?receiver=datvemaybay2017@gmail.com&product_name=${id}&price=${TongTien}&return_url=index&comments=Thanh toan cho ma dat cho id=${id}"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-sm.png"border="0" /></a></center>
                                 </div>
                             </li>
                             <li>
