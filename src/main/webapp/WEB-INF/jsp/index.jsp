@@ -25,7 +25,7 @@
         <!--End of Zendesk Chat Script-->
 
 
-        <!-- API tim san bay  -->
+        <!--AirPortCode API tim san bay  -->
         <script>
             $(function () {
                 var apiKey,
@@ -125,7 +125,7 @@
         <!-- disable ngày về khi chọn 1 chiều -->
         <script>
             $(document).ready(function () {
-                
+
                 $('#motchieu').change(function () {
                     $("#NgayVe").hide();
                 });
@@ -145,7 +145,7 @@
                 } else
                     $("#process").show();
             }
-            
+
             function TimSanBayDen() {
                 var chatinput = document.getElementById("MaSanBayDen").value;
                 if (chatinput === "" || chatinput.length === 0 || chatinput === null)
@@ -156,6 +156,23 @@
             }
         </script>
 
+        <!-- kiểm tra trường rỗng -->
+        <script>
+            function KiemTraTruongRong() {
+                var MaSanBayDi = document.getElementById("MaSanBayDi").value;
+                var MaSanBayDen = document.getElementById("MaSanBayDen").value;
+                var ngaydi = document.getElementById("ngaydi").value;
+
+                if (MaSanBayDi.length === 0 || MaSanBayDen.length === 0 || ngaydi.length === 0)
+                {
+                    $('#modal1').modal('open');
+                }
+                else
+                    document.getElementById("FormTimVe").submit();
+                      
+            }
+        </script>
+
 
 
 
@@ -163,7 +180,20 @@
     </head>
     <body>
         <%@ include file="/resources/ModuleDesign/navbar.jsp"%>
-
+        
+        <!-- Modal Thông báo trường rỗng -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <img src="resources/img/logo.png">
+                <p>Bạn vui lòng nhập đầy đủ: Sân Bay Đi - Sân Bay Đến - Ngày Đi</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Nhập lại</a>
+            </div>
+        </div>
+        <!-- End Modal Thông báo trường rỗng -->
+        
+        
         <div id="index-banner" class="parallax-container"><!-- class quy dinh mau chu cua banner trong style.css / hinh nen -->
             <div class="section no-pad-bot">
                 <div class="container">
@@ -178,7 +208,7 @@
 
                                     <div class="row">
 
-                                        <form class="col s12" action="result" method="post">
+                                        <form class="col s12" action="result" method="post" id="FormTimVe">
                                             <div class="row">
                                                 <div class="input-field col s5">
                                                     <input onkeyup="TimSanBayDi()" name="MaSanBayDi" id="MaSanBayDi" placeholder="<spring:message code="lable.index.From.comment"/>" id="SanBayDi" type="text" class="validate autocomplete">
@@ -264,9 +294,7 @@
 
 
                                             <center>
-                                                <button class="btn waves-effect waves-light" type="submit" name="action"><spring:message code="lable.index.SearchTickets"/>
-                                                    <i class="material-icons left">search</i>
-                                                </button>
+                                                <a onclick="KiemTraTruongRong()" class="waves-effect waves-light btn"><i class="material-icons left">search</i><spring:message code="lable.index.SearchTickets"/></a>
                                             </center>
                                         </form>
                                     </div>

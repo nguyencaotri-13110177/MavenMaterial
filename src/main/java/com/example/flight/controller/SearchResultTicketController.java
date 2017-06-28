@@ -58,7 +58,7 @@ public class SearchResultTicketController {
      */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
-    @RequestMapping(value = "/result", method = RequestMethod.POST)
+        @RequestMapping(value = "/result", method = RequestMethod.POST)
     public String resultSearch(ModelMap model, @RequestParam(value = "MaSanBayDi") String MaSanBayDi, @RequestParam(value = "MaSanBayDen") String MaSanBayDen, @RequestParam(value = "NgayDi") String NgayDi, @RequestParam(value = "SLNguoiLon") int SLNguoiLon, @RequestParam(value = "SLTreEm") int SLTreEm, @RequestParam(value = "SLEmBe") int SLEmBe) throws ParseException {
 
         //Đổi định dạng ngày đi
@@ -120,7 +120,7 @@ public class SearchResultTicketController {
             QPXExpress qpXExpress = new QPXExpress.Builder(httpTransport, JSON_FACTORY, null).setApplicationName(APPLICATION_NAME)
                     .setGoogleClientRequestInitializer(new QPXExpressRequestInitializer(API_KEY)).build();
 
-            TripsSearchResponse list = qpXExpress.trips().search(parameters).execute();
+            TripsSearchResponse list = qpXExpress.trips().search(parameters).execute(); //Thuc Thi
             List<TripOption> tripResults = list.getTrips().getTripOption();
             FlightInformation.flightTripInfos = tripResults;
 
