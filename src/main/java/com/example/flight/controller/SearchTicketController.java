@@ -15,6 +15,11 @@ public class SearchTicketController {
         return "index";
     }
     
+    @RequestMapping(value = "/huongdan", method = RequestMethod.GET)
+    public String huongdan() {
+        return "huongdan";
+    }
+    
     @RequestMapping(value = "/thanhtoan", method = RequestMethod.GET)
     public String thanhtoan(ModelMap mm) {
         

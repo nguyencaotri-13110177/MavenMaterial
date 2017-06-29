@@ -13,7 +13,7 @@
                 <!-- menu ở chế độ desktop  -->
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index"><spring:message code="lable.index.Home"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.TicketingGuide"/></a></li>
+                    <li><a href="huongdan"><spring:message code="lable.index.TicketingGuide"/></a></li>
                     <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
                     <li>
                         <ul id="dropdown1" class="dropdown-content">
@@ -27,8 +27,8 @@
 
                 <!-- menu ở chế độ mobile  -->
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#"><spring:message code="lable.index.Home"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.TicketingGuide"/></a></li>
+                    <li><a href="index"><spring:message code="lable.index.Home"/></a></li>
+                    <li><a href="huongdan"><spring:message code="lable.index.TicketingGuide"/></a></li>
                     <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
                     <li>
                         <ul id="dropdown2" class="dropdown-content">
