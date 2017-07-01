@@ -9,13 +9,13 @@
         <title>T&T_Index</title>
 
         <!-- CSS  -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="resources/css/icon.css" rel="stylesheet">
         <link href="resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="resources/css/jquery-ui.css">
+        <script src="resources/js/jquery.min.js" type="text/javascript"></script>
+        <script src="resources/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
 
 
