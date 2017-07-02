@@ -4,20 +4,23 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="shortcut icon" href="resources/img/favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
         <title>T&T_ChuyenKhoan</title>
 
         <!-- CSS  -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="resources/css/icon.css" rel="stylesheet">
         <link href="resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="resources/css/jquery-ui.css">
+        <script src="resources/js/jquery.min.js" type="text/javascript"></script>
+        <script src="resources/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
-        
+
+
+
         <!--Script Zendesk Chat Support Live Chat-->
         <script src="resources/js/livechat.js"></script>
         <!--End of Zendesk Chat Script-->
@@ -54,8 +57,8 @@
                                     <h3>Vietinbak</h3><br>
                                     Số tài khoản: 9704 1552 4814 8589<br>
                                     Chủ tài khoản:           Nguyen Cao Tri<br>
-                                    Nội dung thanh toán:     Thanh toán đặt chỗ 121234<br>
-                                    Số tiền chuyển khoản:    1.834.935 VND<br>
+                                    Nội dung thanh toán:     Thanh toán đặt chỗ ${id}<br>
+                                    Số tiền chuyển khoản:    ${TongTien} VND<br>
                                     <p style="color:red;">Lưu ý: Chuyển đúng số tiền chính xác đến 3 số cuối.</p>
                                 </span>
                             </div>

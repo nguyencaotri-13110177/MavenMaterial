@@ -19,7 +19,7 @@ public class SearchTicketController {
     public String huongdan() {
         return "huongdan";
     }
-    
+            
     @RequestMapping(value = "/thanhtoan", method = RequestMethod.GET)
     public String thanhtoan(ModelMap mm) {
         
@@ -31,17 +31,23 @@ public class SearchTicketController {
     
     @RequestMapping(value = "/chuyenkhoan", method = RequestMethod.GET)
     public String chuyenkhoan(ModelMap mm) {
+        mm.addAttribute("id", SearchResult2.id);
+        mm.addAttribute("TongTien", SearchResult2.TongGiaTien);
         return "chuyenkhoan";
     }
-    
-   
-    
+     
     
     @RequestMapping(value = "/momo", method = RequestMethod.GET)
-    public String momo() {
+    public String momo(ModelMap mm) {
+        mm.addAttribute("id", SearchResult2.id);
+        mm.addAttribute("TongTien", SearchResult2.TongGiaTien);
         return "momo";
     }
     
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String contact() {
+        return "contact";
+    }
 
     
 }

@@ -8,13 +8,13 @@
     <body>
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="index" class="brand-logo"><image src="resources/img//logo.png"></a>
+                <a id="logo-container" href="index" class="brand-logo"><image src="resources/img/logo.png"></a>
 
                 <!-- menu ở chế độ desktop  -->
                 <ul class="right hide-on-med-and-down">
                     <li><a href="index"><spring:message code="lable.index.Home"/></a></li>
                     <li><a href="huongdan"><spring:message code="lable.index.TicketingGuide"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
+                    <li><a href="contact"><spring:message code="lable.index.Contact"/></a></li>
                     <li>
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="?lang=en">Tiếng anh</a></li>
@@ -29,7 +29,7 @@
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="index"><spring:message code="lable.index.Home"/></a></li>
                     <li><a href="huongdan"><spring:message code="lable.index.TicketingGuide"/></a></li>
-                    <li><a href="#"><spring:message code="lable.index.Contact"/></a></li>
+                    <li><a href="contact"><spring:message code="lable.index.Contact"/></a></li>
                     <li>
                         <ul id="dropdown2" class="dropdown-content">
                             <li><a href="?lang=en">Tiếng anh</a></li>

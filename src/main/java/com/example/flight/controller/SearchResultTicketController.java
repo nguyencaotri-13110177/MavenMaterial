@@ -57,16 +57,22 @@ public class SearchResultTicketController {
      * Global instance of the JSON factory.
      */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
+    
+    private String MaSanBayDiGlobal;
+    private String MaSanBayDenGlobal;
+    private String NgayDiGlobal;
+    private int SLNguoiLonGlobal;
+    private int SLTreEmGlobal;
+    private int SLEmBeGlobal;
 
-        @RequestMapping(value = "/result", method = RequestMethod.POST)
-    public String resultSearch(ModelMap model, @RequestParam(value = "MaSanBayDi") String MaSanBayDi, @RequestParam(value = "MaSanBayDen") String MaSanBayDen, @RequestParam(value = "NgayDi") String NgayDi, @RequestParam(value = "SLNguoiLon") int SLNguoiLon, @RequestParam(value = "SLTreEm") int SLTreEm, @RequestParam(value = "SLEmBe") int SLEmBe) throws ParseException {
-
+    @RequestMapping(value = "/result", method = RequestMethod.POST)
+    public String resultSearch(ModelMap model, @RequestParam(value = "MaSanBayDi") String MaSanBayDi, @RequestParam(value = "MaSanBayDen") String MaSanBayDen, @RequestParam(value = "NgayDi") String NgayDi, @RequestParam(value = "SLNguoiLon") int SLNguoiLon, @RequestParam(value = "SLTreEm") int SLTreEm, @RequestParam(value = "SLEmBe") int SLEmBe) throws ParseException
+    {
         //Đổi định dạng ngày đi
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd MMM, yyyy");  //convert string date type
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
         //String dateInString = "7-Jun-2013";
         try {
-
             Date ngaydi = formatter1.parse(NgayDi);
             //System.out.println(ngaydi);
             //System.out.println(formatter2.format(ngaydi));
@@ -74,6 +80,14 @@ public class SearchResultTicketController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        
+        MaSanBayDiGlobal=MaSanBayDi;
+        MaSanBayDenGlobal=MaSanBayDen;
+        NgayDiGlobal=NgayDi;
+        SLTreEmGlobal=SLTreEm;
+        SLEmBeGlobal=SLEmBe;
+        SLNguoiLonGlobal=SLNguoiLon;
+        
 
 //        //Đổi định dạng ngày về
 //        try {
@@ -239,6 +253,14 @@ public class SearchResultTicketController {
         model.addAttribute("searchResults", searchResults);
         return "search_result";
     }
+    
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    public String resultSearchGET(ModelMap model) throws ParseException
+    {
+        resultSearch(model,MaSanBayDiGlobal, MaSanBayDenGlobal, NgayDiGlobal,  SLNguoiLonGlobal, SLTreEmGlobal, SLEmBeGlobal);
+        return "search_result";
+    }
+    
 
  
 }
