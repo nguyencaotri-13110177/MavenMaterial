@@ -58,7 +58,7 @@
                             <li>
                                 <div class="collapsible-header"><i class="material-icons">label_outline</i><spring:message code="thanhtoan.DirectAtTheBankOrATM"/></div>
                                 <div class="collapsible-body">
-                                    <img src="resources/img/banklink.png"  height="250" width="100%">
+                                    <img src="resources/img/banklink.jpg"  height="250" width="100%">
                                     <p><spring:message code="thanhtoan.comment4"/><br>
                                         <spring:message code="thanhtoan.comment5"/><br>
                                         <spring:message code="thanhtoan.comment6"/><br>

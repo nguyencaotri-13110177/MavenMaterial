@@ -32,8 +32,8 @@
                 var apiKey,
                         apca,
                         params = {
-                            secret: 'd88906cc67d5977',
-                            key: 'c36175d1d6',
+                            secret: '924dcf0e052d689',
+                            key: '6fbf037413',
                             limit: 10
                         };
 
@@ -202,7 +202,7 @@
                         <div class="col s12 m7">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="resources/img/img8.png"> <!-- hinh cua image Card TimVe -->
+                                    <img src="resources/img/img8.jpg"> <!-- hinh cua image Card TimVe -->
                                     <span class="card-title"><spring:message code="lable.index.Title"/></span>
                                 </div>
                                 <div class="card-content">
@@ -349,7 +349,7 @@
 
         <div class="container">
             <div class="row">
-                <img src="resources/img/imgbr.png" alt="Unsplashed background img 2" class="col s12"> <!-- hinh cac hang may bay -->
+                <img src="resources/img/imgbr.jpg" alt="Unsplashed background img 2" class="col s12"> <!-- hinh cac hang may bay -->
             </div>
         </div>
 

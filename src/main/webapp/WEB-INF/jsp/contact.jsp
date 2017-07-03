@@ -42,7 +42,7 @@
                     <div class="col s8">
                         <div class="card">
                             <div class="card-image">
-                                <img src="resources/img/pp1.png">
+                                <img src="resources/img/pp1.jpg">
                                 <span class="card-title"><spring:message code="contact.LienHeVoiChungToi"/></span>
                             </div>
                             <div class="card-content">
