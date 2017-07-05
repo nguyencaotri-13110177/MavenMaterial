@@ -57,7 +57,7 @@
                                 <div class="chip">
                                     <img src="resources/img/skype.png">
                                     Skype: Nguyễn Cao Trí - nguyencaotri1995
-                                </div><br>
+                                </div>
                                 <div class="chip">
                                     <img src="resources/img/facebook.png">
                                     Facebook: facebook.com/caotri.nguyen.735
