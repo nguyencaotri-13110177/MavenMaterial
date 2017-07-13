@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ManagerController {
-    @RequestMapping(value = "/dangnhap", method = RequestMethod.GET)
-    public String dangnhap() {
-        return "dangnhap";
-    }
     
     @RequestMapping(value = "/quenmatkhau", method = RequestMethod.GET)
     public String quenmatkhau() {

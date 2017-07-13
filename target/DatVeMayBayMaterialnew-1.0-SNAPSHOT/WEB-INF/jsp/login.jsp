@@ -67,9 +67,13 @@
                                 <span>${error}</span>
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <center>
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                        <spring:message code="dangnhap.button.DangNhap"/>
+                                    </button>
                                 </center>
-                                <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
+                                <center>
+                                    <h6><a href="${contextPath}/create_new_user"><spring:message code="dangnhap.LayLaiMatKhau"/></a></h6>
+                                </center>
                             </div>
                         </form>
                     </div>

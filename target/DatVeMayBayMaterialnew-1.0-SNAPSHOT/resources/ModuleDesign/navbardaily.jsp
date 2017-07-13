@@ -1,4 +1,8 @@
 <%@page  pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +19,14 @@
                     <li><a href="quanly">Live Chat</a></li>
                     <li><a href="guiemail">Gửi Email</a></li>
                     <li><a href="dangnhap">Thống Kê</a></li>
-                    <li><a href="index">Đăng xuất</a></li>                    
+                    <li>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form>
+                            <a onclick="document.forms['logoutForm'].submit()">Đăng xuất</a>
+                        </c:if>
+                    </li>                    
                 </ul>
 
 

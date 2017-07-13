@@ -9,12 +9,13 @@
 
     <http auto-config="true">
         <intercept-url pattern="/quanly" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/create_new_user" access="hasRole('ROLE_USER')"/>
         <intercept-url pattern="/thongke" access="hasRole('ROLE_USER')"/>
         <intercept-url pattern="/guiemail" access="hasRole('ROLE_USER')"/>
-        <form-login login-page="/login" default-target-url="/index"
+        <form-login login-page="/login" default-target-url="/quanly"
                     authentication-failure-url="/login?error" 
                     username-parameter="username" password-parameter="password"/>
-        <logout logout-success-url="/login?logout" />
+        <logout logout-success-url="/index" />
         <csrf disabled="true"/>
     </http>
 

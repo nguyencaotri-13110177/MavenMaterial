@@ -23,20 +23,20 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @RequestMapping(value = "/create_new_user", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "registration";
+        return "create_new_user";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/create_new_user", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm,
             BindingResult bindingResult, Model model) {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "create_new_user";
         }
 
         userService.save(userForm);
