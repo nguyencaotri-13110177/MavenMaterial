@@ -15,7 +15,7 @@
                     <li><a href="index"><spring:message code="lable.index.Home"/></a></li>
                     <li><a href="huongdan"><spring:message code="lable.index.HuongDan"/></a></li>
                     <li><a href="contact"><spring:message code="lable.index.Contact"/></a></li>
-                    <li><a href="dangnhap"><spring:message code="menu.dangnhap"/></a></li>
+                    <li><a href="login"><spring:message code="menu.dangnhap"/></a></li>
                     <li>
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="?lang=en">Tiếng anh</a></li>

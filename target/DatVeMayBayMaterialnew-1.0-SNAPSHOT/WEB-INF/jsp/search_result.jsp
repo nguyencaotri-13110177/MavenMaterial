@@ -66,7 +66,7 @@
                             <td>${sr.getThoiGianDen()}</td>
                             <td>${sr.getKhoangCach()} phút</td>
                             <td>${sr.getTongTienText()}</td>
-                            <td><a href="a?id=${sr.id}">Choose</a></td>
+                            <td><a href="vechon?id=${sr.id}">Choose</a></td>
                         </tr>  
                     </c:forEach>
                 </table>

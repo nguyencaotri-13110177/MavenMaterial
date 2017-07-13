@@ -25,6 +25,7 @@
 
         <div class="container">
             <div class="section">
+                <div class="white-text card-panel teal lighten-2">Hỗ trợ khách hàng trực tuyến. Email: <font color="red">vidayane@10vpn.info</font>. Mật khẩu: <font color="red">datvemaybay</font></div>
 
                 <div class="row">
                     
