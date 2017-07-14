@@ -3,12 +3,10 @@ package com.tnt.booking.flight.controller;
 import com.tnt.booking.flight.entity.SearchResult;
 import com.tnt.booking.flight.entity.SearchResult2;
 import com.tnt.booking.flight.resdata.FlightInformation;
-import com.tnt.booking.flight.entity.SearchTicket;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.DateTime;
 import com.google.api.services.qpxExpress.QPXExpress;
 import com.google.api.services.qpxExpress.QPXExpressRequestInitializer;
 import com.google.api.services.qpxExpress.model.FlightInfo;
@@ -28,15 +26,11 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +40,7 @@ public class SearchResultTicketController {
 
     private static final String APPLICATION_NAME = "FlightTicket";
 
-    private static final String API_KEY = "AIzaSyDi2ToDM2o7TfmP6u0NGkwYbajYUbzjoyw"; //Key giới hạn 50 lượt request/ 1 ngày
+    private static final String API_KEY = "AIzaSyC5FYFXrSjH9Whx8gDey_ZHbUkh_sqj2lA"; //Key giới hạn 50 lượt request/ 1 ngày
 
     /**
      * Global instance of the HTTP transport.

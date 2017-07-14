@@ -20,6 +20,11 @@ public class ManagerController {
         return "quanly";
     }
     
+    @RequestMapping(value = "/thongke", method = RequestMethod.GET)
+    public String thongke() {
+        return "thongke";
+    }
+    
     @RequestMapping(value = "/thanhtoanthanhcong", method = RequestMethod.GET)
     public String thanhtoanthanhcong(@RequestParam("id") String id, ModelMap mm) {
         

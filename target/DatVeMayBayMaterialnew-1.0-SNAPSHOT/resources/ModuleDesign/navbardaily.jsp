@@ -18,7 +18,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="quanly">Live Chat</a></li>
                     <li><a href="guiemail">Gửi Email</a></li>
-                    <li><a href="dangnhap">Thống Kê</a></li>
+                    <li><a href="thongke">Thống Kê</a></li>
                     <li>
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <form id="logoutForm" method="POST" action="${contextPath}/logout">
