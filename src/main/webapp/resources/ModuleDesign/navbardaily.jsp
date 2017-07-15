@@ -1,8 +1,4 @@
 <%@page  pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,26 +12,36 @@
 
                 <!-- menu ở chế độ desktop  -->
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="quanly">Live Chat</a></li>
-                    <li><a href="guiemail">Gửi Email</a></li>
-                    <li><a href="thongke">Thống Kê</a></li>
+                    <li><a href="quanly"><spring:message code="navbar.navbardaily.LiveChat"/></a></li>
+                    <li><a href="guiemail"><spring:message code="navbar.navbardaily.SendEmail"/></a></li>
+                    <li><a href="thongke"><spring:message code="navbar.navbardaily.Statistic"/></a></li>
+                    <li><a href="create_new_user"><spring:message code="navbar.navbardaily.CreateNewUser"/></a></li>
                     <li>
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <form id="logoutForm" method="POST" action="${contextPath}/logout">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form>
-                            <a onclick="document.forms['logoutForm'].submit()">Đăng xuất</a>
+                            <a onclick="document.forms['logoutForm'].submit()">
+                                <spring:message code="navbar.navbardaily.Logout"/></a>
                         </c:if>
-                    </li>                    
+                    </li>
                 </ul>
-
 
                 <!-- menu ở chế độ mobile  -->
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="quanly">Live Chat</a></li>
-                    <li><a href="guiemail">Gửi Email</a></li>
-                    <li><a href="huongdan">Thống Kê</a></li>
-                    <li><a href="contact">Đăng xuất</a></li>
+                    <li><a href="quanly"><spring:message code="navbar.navbardaily.LiveChat"/></a></li>
+                    <li><a href="guiemail"><spring:message code="navbar.navbardaily.SendEmail"/></a></li>
+                    <li><a href="thongke"><spring:message code="navbar.navbardaily.Statistic"/></a></li>
+                    <li><a href="create_new_user"><spring:message code="navbar.navbardaily.CreateNewUser"/></a></li>
+                    <li>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form>
+                            <a onclick="document.forms['logoutForm'].submit()">
+                                <spring:message code="navbar.navbardaily.Logout"/></a></a>
+                        </c:if>
+                    </li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>

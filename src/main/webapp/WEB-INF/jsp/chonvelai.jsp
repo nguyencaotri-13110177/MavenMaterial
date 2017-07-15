@@ -19,16 +19,9 @@
         <script src="resources/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
 
-
-
         <!--Script Zendesk Chat Support Live Chat-->
         <script src="resources/js/livechat.js"></script>
         <!--End of Zendesk Chat Script-->
-
-
-
-
-
 
     </head>
     <body>
@@ -56,10 +49,6 @@
 
             </div>
         </div>
-
-
-
-
 
         <!--  Scripts-->
         <script src="resources/js/materialize.js"></script>

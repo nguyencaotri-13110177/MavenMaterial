@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SendEmailController {
@@ -25,7 +26,21 @@ public class SendEmailController {
     }
 
     @RequestMapping(value = "/guiemail", method = RequestMethod.POST)
+    @ResponseBody
     public String guiemail(ModelMap mm, @RequestParam(value = "EmailNhan") String EmailNhan, @RequestParam(value = "NoiDung") String NoiDung) {
+
+        try {
+            email(EmailNhan, NoiDung);            
+            mm.addAttribute("thongbao", "Thư của bạn đã được gửi");
+        } catch (Exception e) {
+            e.printStackTrace();
+            mm.addAttribute("thongbao", "Gửi thất bại");
+        }
+
+        return "guiemail";
+    }
+    
+    public void email(String EmailNhan, String NoiDung) {
 
         final String user = "datvemaybay2017@gmail.com";
         final String pass = "19951879tri@";
@@ -42,16 +57,10 @@ public class SendEmailController {
             }
         });
 
-        try {
-
-            /* Create an instance of MimeMessage, 
-	        	      it accept MIME types and headers 
-             */
+        try {            
             MimeMessage me = new MimeMessage(session);
             me.setFrom(new InternetAddress(user));
-            me.addRecipient(Message.RecipientType.TO, new InternetAddress(EmailNhan));
-
-            
+            me.addRecipient(Message.RecipientType.TO, new InternetAddress(EmailNhan));            
 
             me.setSubject("T&TFlightTicket");
 
@@ -60,18 +69,12 @@ public class SendEmailController {
             htmlPart.setContent(NoiDung, "text/html; charset=utf-8");
             mp.addBodyPart(htmlPart);
             me.setContent(mp);
-
-            //me.setText(NoiDung, "text/html; charset=utf-8");
-
-            /* Transport class is used to deliver the message to the recipients */
+            
             Transport.send(me);
-            mm.put("thongbao", "<h2 style=" + "color:green" + "><b>sent successfully &#x2713;</b></h2>");
+            //return true;
         } catch (Exception e) {
             e.printStackTrace();
-            mm.put("thongbao", "<h2 style=" + "color:red" + "><b>! send failed</b></h2>");
+            //return false;
         }
-
-        return "redirect:quanly1.ute";
     }
-
 }

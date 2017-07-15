@@ -23,6 +23,51 @@
         <script type="text/javascript" src="resources/ckeditor/ckeditor.js"></script>
         <script>CKEDITOR.replace(jQuery('.ckeditor'));</script>
 
+        <!-- Check thông gửi email đã được gửi  -->
+        <script>
+            function AjaxGuiEmail() {
+
+                /*$.ajax({
+                    url: 'guiemail',
+                    type: 'POST',
+                    dataType: 'html',
+                    beforeSend: function () {
+                        document.getElementById("doiguiemail").style.display = 'block';
+                    },
+                    complete: function () {
+                        document.getElementById("doiguiemail").style.display = 'none';
+                        document.getElementById("thongbao").style.display = 'block';
+                    },
+                    data: $("#formguiemail").serialize(),
+                    success: function ()
+                    {
+                        alert('thanh cong'); // show response from the php script.
+                    }
+                });*/
+        $.ajax({
+                            url: 'guiemail',
+                            type: 'POST',
+                            dataType: 'html',
+                            beforeSend: function () {
+                                document.getElementById("doiguiemail").style.display = 'block';
+
+                            },
+                            complete: function () {
+                                document.getElementById("doiguiemail").style.display = 'none';
+                        document.getElementById("thongbao").style.display = 'block';
+                            },
+                            data: {
+                                EmailNhan: $('#EmailNhan').val(),
+                                NoiDung: $('#NoiDung').val(),
+                                
+                            }
+                        });
+            }
+            //$(document).ready(function () {
+            //    document.getElementById("doiguiemail").style.display = 'block';
+            //});
+        </script>
+
     </head>
     <body>
         <%@ include file="/resources/ModuleDesign/navbardaily.jsp"%>
@@ -33,14 +78,37 @@
 
                 <div class="row">
                     <div class="white-text card-panel teal lighten-2">Gửi email đến khách hàng</div>
-                    <form class="col s12" action="guiemail" method="post">                        
+
+                    <div id="doiguiemail" style="display: none">
+                        <center>
+                            <div class="chip light-blue white-text">
+                                Email đang được gửi, vui lòng đợi...
+                                <i class="close material-icons">close</i>
+                            </div>
+                        </center>
+                        <div class="progress">                        
+                            <div class="indeterminate"></div>
+                        </div>
+                    </div>
+
+                    <div id="thongbao" style="display: none">
+                        <center>
+                            <div class="chip light-blue white-text">
+                                Thư của bạn đã được gửi.
+                                <i class="close material-icons">close</i>
+                            </div>
+                        </center>
+                    </div>                   
+
+
+                    <form class="col s12" action="formguiemail" method="post">                        
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_prefix" type="text" class="validate" name="EmailNhan">
+                            <input id="EmailNhan" type="email" class="validate" name="EmailNhan">
                             <label for="icon_prefix">Email nhận</label>
                         </div>
 
-                        <textarea name="NoiDung" class="ckeditor" rows="900">
+                        <textarea id="NoiDung" name="NoiDung" class="ckeditor" rows="900">
                                     <table cellspacing="0" style="width:100.0%">
 	<tbody>
 		<tr>
@@ -98,9 +166,10 @@
                         </textarea><br>
 
                         <center>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Gửi thư
-                                <i class="material-icons right">send</i>
-                            </button>
+
+                            <center>
+                                <a onclick="AjaxGuiEmail()" class="waves-effect waves-light btn">Gửi thư<i class="material-icons right">send</i></a>
+                            </center>
                         </center>
                     </form>
                 </div>

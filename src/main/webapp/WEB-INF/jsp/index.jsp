@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,12 +20,9 @@
         <script src="resources/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="resources/js/air-port-codes-api-min.js"></script>
 
-
-
         <!--Script Zendesk Chat Support Live Chat-->
         <script src="resources/js/livechat.js"></script>
         <!--End of Zendesk Chat Script-->
-
 
         <!--AirPortCode API tim san bay  -->
         <script>
@@ -32,17 +30,14 @@
                 var apiKey,
                         apca,
                         params = {
-                            secret: '924dcf0e052d689',
-                            key: '6fbf037413',
+                            secret: 'd331507a941444c',
+                            key: 'f68af74d6b',
                             limit: 10
                         };
 
                 initAutoSelect();
 
-
-
-
-                function initAutoSelect() {
+            function initAutoSelect() {
                     $(".autocomplete").each(function () {
                         var apca = new apc('autocomplete', params),
                                 autocompleteObj = {
@@ -103,8 +98,6 @@
                                     }
                                 }
 
-
-
                         // this is necessary to allow html entities to display properly in the jqueryUI labels
                         $(this).autocomplete(autocompleteObj).data("ui-autocomplete")._renderItem = function (ul, item) {
                             $("#process").hide();
@@ -120,8 +113,6 @@
                 ;
             });
         </script>
-
-
 
         <!-- disable ngày về khi chọn 1 chiều -->
         <script>
@@ -174,10 +165,6 @@
             }
         </script>
 
-
-
-
-
     </head>
     <body>
         <%@ include file="/resources/ModuleDesign/navbar.jsp"%>
@@ -193,8 +180,7 @@
             </div>
         </div>
         <!-- End Modal Thông báo trường rỗng -->
-        
-        
+            
         <div id="index-banner" class="parallax-container"><!-- class quy dinh mau chu cua banner trong style.css / hinh nen -->
             <div class="section no-pad-bot">
                 <div class="container">
@@ -309,8 +295,6 @@
             </div>
             <div class="parallax"><img src="resources/img/imga.jpg" alt="Unsplashed background img 1" style="height:500px;width:100%;"></div> <!-- hinh cua banner -->
         </div>
-
-
 
         <div class="container">
             <div class="section">
