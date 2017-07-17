@@ -57,7 +57,7 @@ public class SendEmailController {
             }
         });
 
-        try {            
+        try {
             MimeMessage me = new MimeMessage(session);
             me.setFrom(new InternetAddress(user));
             me.addRecipient(Message.RecipientType.TO, new InternetAddress(EmailNhan));            

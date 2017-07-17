@@ -48,7 +48,6 @@ public class SearchTicketController {
 
             return "thanhtoan";
         }
-
     }
 
     @RequestMapping(value = "/chonvelai", method = RequestMethod.GET)

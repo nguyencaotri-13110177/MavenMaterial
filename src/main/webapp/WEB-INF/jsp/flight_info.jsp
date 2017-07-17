@@ -109,21 +109,21 @@
                                         <div class="row">
                                             <div class="row">
                                                 <div class="input-field col s6">
-                                                    <input id="TTHoTen" type="text" class="valid" data-error="" required="required" aria-required="true">
+                                                    <input placeholder="Nhập họ tên người thanh toán" id="TTHoTen" type="text" class="valid" data-error="" required="required" aria-required="true">
                                                     <label for="last_name">Họ tên</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    <input id="TTCMND" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                    <input placeholder="Nhập CMND người thanh toán" id="TTCMND" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                     <label for="last_name">CMND</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s6">
-                                                    <input id="TTSDT" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                    <input placeholder="Nhập SDT người thanh toán" id="TTSDT" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                     <label for="last_name">SDT</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    <input id="TTEmail" type="email" class="valid" data-error="" required="required" aria-required="true">
+                                                    <input placeholder="Nhập Email người thanh toán" id="TTEmail" type="email" class="valid" data-error="" required="required" aria-required="true">
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
@@ -143,11 +143,11 @@
                                                 <div class="row">
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="tenNL${i}" type="text" class="valid" data-error="" required="required" aria-required="true">
+                                                            <input placeholder="Nhập tên hành khách" id="tenNL${i}" type="text" class="valid" data-error="" required="required" aria-required="true">
                                                             <label for="last_name">Họ tên</label>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input id="cmndNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                            <input placeholder="Nhập CMND hành khách" id="cmndNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                             <label for="last_name">CMND</label>
                                                         </div>
                                                     </div>
@@ -156,15 +156,15 @@
                                                             Ngày sinh:
                                                             <div class="input-field inline">
                                                                 <div class="input-field col s4">
-                                                                    <input id="ngayNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Ngày" id="ngayNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Ngày</label>
                                                                 </div>
                                                                 <div class="input-field col s4">
-                                                                    <input id="thangNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Tháng" id="thangNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Tháng</label>
                                                                 </div>
                                                                 <div class="input-field col s4">
-                                                                    <input id="namNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Năm" id="namNL${i}" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Năm</label>
                                                                 </div>
 
@@ -179,7 +179,7 @@
                                                 <div class="row">
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="last_name" type="text" class="valid" data-error="" required="required" aria-required="true">
+                                                            <input placeholder="Nhập tên hành khách" id="last_name" type="text" class="valid" data-error="" required="required" aria-required="true">
                                                             <label for="last_name">Họ tên</label>
                                                         </div>
 
@@ -189,15 +189,15 @@
                                                             Ngày sinh:
                                                             <div class="input-field inline">
                                                                 <div class="input-field col s4">
-                                                                    <input id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Ngày" id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Ngày</label>
                                                                 </div>
                                                                 <div class="input-field col s4">
-                                                                    <input id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Tháng" id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Tháng</label>
                                                                 </div>
                                                                 <div class="input-field col s4">
-                                                                    <input id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Năm" id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Năm</label>
                                                                 </div>
 
@@ -212,7 +212,7 @@
                                                 <div class="row">
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="last_name" type="text" class="valid" data-error="" required="required" aria-required="true">
+                                                            <input placeholder="Nhập tên hành khách" id="last_name" type="text" class="valid" data-error="" required="required" aria-required="true">
                                                             <label for="last_name">Họ tên</label>
                                                         </div>
 
@@ -222,15 +222,15 @@
                                                             Ngày sinh:
                                                             <div class="input-field inline">
                                                                 <div class="input-field col s4">
-                                                                    <input id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Ngày" id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Ngày</label>
                                                                 </div>
                                                                 <div class="input-field col s4">
-                                                                    <input id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Tháng" id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Tháng</label>
                                                                 </div>
                                                                 <div class="input-field col s4">
-                                                                    <input id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
+                                                                    <input placeholder="Năm" id="last_name" type="number" class="valid" data-error="" required="required" aria-required="true">
                                                                     <label for="last_name">Năm</label>
                                                                 </div>
 
