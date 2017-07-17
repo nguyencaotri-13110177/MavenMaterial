@@ -2,5 +2,5 @@
 -Đề tài: XÂY DỰNG WEBSITE TRA CỨU VÉ MÁY BAY SỬ DỤNG SPRING MVC FRAMEWORK
 -Link Website: https://datvemaybay2017.herokuapp.com
 -Đăng nhập trang quản lý:
-  +username: tri123
-  +password: 12345678
+  username: tri123
+  password: 12345678
