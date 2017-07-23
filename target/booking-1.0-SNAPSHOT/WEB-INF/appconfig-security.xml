@@ -8,14 +8,14 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/quanly" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/create_new_user" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/thongke" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/guiemail" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/quanly/" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/create_new_user/" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/thongke/" access="hasRole('ROLE_USER')"/>
-        <intercept-url pattern="/guiemail/" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/quanly" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/create_new_user" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/thongke" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/guiemail" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/quanly/" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/create_new_user/" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/thongke/" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/guiemail/" access="hasRole('ROLE_ADMIN')"/>
         <form-login login-page="/login" default-target-url="/quanly"
                     authentication-failure-url="/login?error" 
                     username-parameter="username" password-parameter="password"/>

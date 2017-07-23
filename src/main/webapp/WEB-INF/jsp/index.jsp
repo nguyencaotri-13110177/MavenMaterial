@@ -30,8 +30,8 @@
                 var apiKey,
                         apca,
                         params = {
-                            secret: 'd331507a941444c',
-                            key: 'f68af74d6b',
+                            secret: 'bf3c481176d3bb4',
+                            key: '254eaaea88',
                             limit: 10
                         };
 
