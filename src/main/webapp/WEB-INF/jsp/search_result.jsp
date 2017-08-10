@@ -25,11 +25,11 @@
         <!--Script Zendesk Chat Support Live Chat-->
         <script src="resources/js/livechat.js"></script>
         <!--End of Zendesk Chat Script-->
-        
+
         <!--Script SortTable-->
         <script src="resources/js/sorttable.js"></script>
         <!--End Script SortTable-->
-        
+
         <style>
             table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
                 content: " \25B4\25BE" 
@@ -58,9 +58,10 @@
                         <th><spring:message code="searchresult.TongGiaTien"/></th>
                         <th>&nbsp;</th>
                     </tr>
-                    <c:forEach var="sr" items="${searchResults}">
+                    
+                    <c:forEach var="sr" items="${searchResults}" varStatus="status">
                         <tr>
-                            <td><img src="resources/img/${sr.getHang()}.png" width="50" height="20"></td>
+                            <td><img src="${dshang[status.index].getFlight_image()}" width="50" height="20"></td>
                             <td>${sr.getHang()}</td>
                             <td>${sr.getThoiGianKhoiHanh()}</td>
                             <td>${sr.getThoiGianDen()}</td>
@@ -69,6 +70,8 @@
                             <td><a href="vechon?id=${sr.id}">Choose</a></td>
                         </tr>  
                     </c:forEach>
+
+                    
                 </table>
 
             </div>

@@ -20,6 +20,7 @@ import com.google.api.services.qpxExpress.model.TripOption;
 import com.google.api.services.qpxExpress.model.TripOptionsRequest;
 import com.google.api.services.qpxExpress.model.TripsSearchRequest;
 import com.google.api.services.qpxExpress.model.TripsSearchResponse;
+import com.tnt.booking.flight.entity.AirLine;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.text.DecimalFormat;
@@ -27,31 +28,25 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class SearchResultTicketController {
 
     private static final String APPLICATION_NAME = "FlightTicket";
-
-    private static final String API_KEY = "AIzaSyD5yzn8HF7V7ifsRiQJg4cU85ziQhcVr7Y"; //Key giới hạn 50 lượt request/ 1 ngày
-
-    /**
-     * Global instance of the HTTP transport.
-     */
+    private static final String API_KEY = "AIzaSyD5yzn8HF7V7ifsRiQJg4cU85ziQhcVr7Y"; //Key giới hạn 50 lượt request/ 1 ngày (QPX Express API)
     private static HttpTransport httpTransport;
-
-    /**
-     * Global instance of the JSON factory.
-     */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    
+
     private String MaSanBayDiGlobal;
     private String MaSanBayDenGlobal;
     private String NgayDiGlobal;
@@ -60,40 +55,28 @@ public class SearchResultTicketController {
     private int SLEmBeGlobal;
 
     @RequestMapping(value = "/result", method = RequestMethod.POST)
-    public String resultSearch(ModelMap model, @RequestParam(value = "MaSanBayDi") String MaSanBayDi, @RequestParam(value = "MaSanBayDen") String MaSanBayDen, @RequestParam(value = "NgayDi") String NgayDi, @RequestParam(value = "SLNguoiLon") int SLNguoiLon, @RequestParam(value = "SLTreEm") int SLTreEm, @RequestParam(value = "SLEmBe") int SLEmBe) throws ParseException
-    {
+    public String resultSearch(ModelMap model, @RequestParam(value = "MaSanBayDi") String MaSanBayDi, @RequestParam(value = "MaSanBayDen") String MaSanBayDen, @RequestParam(value = "NgayDi") String NgayDi, @RequestParam(value = "SLNguoiLon") int SLNguoiLon, @RequestParam(value = "SLTreEm") int SLTreEm, @RequestParam(value = "SLEmBe") int SLEmBe) throws ParseException {
         //Đổi định dạng ngày đi
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd MMM, yyyy");  //convert string date type
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
         //String dateInString = "7-Jun-2013";
         try {
             Date ngaydi = formatter1.parse(NgayDi);
-            //System.out.println(ngaydi);
-            //System.out.println(formatter2.format(ngaydi));
             NgayDi = formatter2.format(ngaydi);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
-        MaSanBayDiGlobal=MaSanBayDi;
-        MaSanBayDenGlobal=MaSanBayDen;
-        NgayDiGlobal=NgayDi;
-        SLTreEmGlobal=SLTreEm;
-        SLEmBeGlobal=SLEmBe;
-        SLNguoiLonGlobal=SLNguoiLon;
-        
 
-//        //Đổi định dạng ngày về
-//        try {
-//
-//            Date ngayve = formatter1.parse(NgayVe);
-//            //System.out.println(ngaydi);
-//            //System.out.println(formatter2.format(ngaydi));
-//            NgayVe=formatter2.format(ngayve);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        MaSanBayDiGlobal = MaSanBayDi;
+        MaSanBayDenGlobal = MaSanBayDen;
+        NgayDiGlobal = NgayDi;
+        SLTreEmGlobal = SLTreEm;
+        SLEmBeGlobal = SLEmBe;
+        SLNguoiLonGlobal = SLNguoiLon;
+
         List<SearchResult> searchResults = new ArrayList<>();
+        List<AirLine> dshang = new ArrayList<>();
+
         try {
             httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 
@@ -112,12 +95,6 @@ public class SearchResultTicketController {
             slice.setDate(NgayDi);  //Nhập ngày đi
             slices.add(slice);
 
-//            System.out.println(MaSanBayDi.substring(0, 3));
-//            System.out.println(MaSanBayDen.substring(0, 3));
-//            System.out.println(SLNguoiLon);
-//            System.out.println(SLTreEm);
-//            System.out.println(SLEmBe);
-//            System.out.println(NgayDi);
             TripOptionsRequest request = new TripOptionsRequest();
             request.setSolutions(19);//Lấy 19 kết quả đầu tiên
             request.setPassengers(passengers);
@@ -138,7 +115,7 @@ public class SearchResultTicketController {
                 SearchResult searchResult = new SearchResult();
                 //Trip Option ID
                 id = tripResults.get(i).getId();
-               
+
                 searchResult.setId(id);
                 //Slice
                 List<SliceInfo> sliceInfo = tripResults.get(i).getSlice();
@@ -146,14 +123,26 @@ public class SearchResultTicketController {
                     int duration = sliceInfo.get(j).getDuration();
                     searchResult.setKhoangCach(duration);
                     List<SegmentInfo> segInfo = sliceInfo.get(j).getSegment();
+
                     for (int k = 0; k < segInfo.size(); k++) {
-                        //String bookingCode = segInfo.get(k).getBookingCode();
                         FlightInfo flightInfo = segInfo.get(k).getFlight();
-                        //String flightNum = flightInfo.getNumber();
                         String flightCarrier = flightInfo.getCarrier();
+
+                        //System.out.println("abc1");
+                        final String uri = "http://klikmbc.co.id/json/getcodeflights-json";
+                        RestTemplate restTemplate = new RestTemplate();
+                        List<AirLine> ListAirLine = Arrays.asList(restTemplate.getForObject(uri, AirLine[].class));
+
+                        //Lay icon hang phu hop trong List tat ca các hãng
+                        Optional<AirLine> a = ListAirLine.stream()
+                                .filter((s) -> flightCarrier.equals(s.getFlight_code())).findFirst();
+
+                        dshang.add(a.get());
+                        
+                        //System.out.println(dshang.get(0).getFlight_image());
+
                         
                         //System.out.println(flightCarrier);
-                        
                         searchResult.setHang(flightCarrier);
                         List<LegInfo> leg = segInfo.get(k).getLeg();
                         for (int l = 0; l < leg.size(); l++) {
@@ -169,6 +158,7 @@ public class SearchResultTicketController {
 
                         }
                     }
+
                 }
                 //Pricing
                 List<PricingInfo> priceInfo = tripResults.get(i).getPricing();
@@ -187,7 +177,7 @@ public class SearchResultTicketController {
                 double TongTienNguoiLon = 0;
                 double TongTienTreEm = 0;
                 double TongTienEmBe = 0;
-                
+
                 for (int p = 0; p < priceInfo.size(); p++) {
                     try {
                         SoNguoiLon = priceInfo.get(p).getPassengers().getAdultCount();
@@ -224,18 +214,17 @@ public class SearchResultTicketController {
                     }
                 }
                 ThanhTien = TongTienNguoiLon + TongTienTreEm + TongTienEmBe;
-                
+
                 NumberFormat formatter = new DecimalFormat("#0");
                 searchResult.setTongTien(ThanhTien);  //set tổng tiền
-                searchResult.setTongTienText(String.valueOf(formatter.format(ThanhTien))+" "+priceInfo.get(0).getSaleTotal().substring(0, 3)); //lấy lại đơn vị tiền tệ
+                searchResult.setTongTienText(String.valueOf(formatter.format(ThanhTien)) + " " + priceInfo.get(0).getSaleTotal().substring(0, 3)); //lấy lại đơn vị tiền tệ
                 searchResult.setTongTienText2(String.valueOf(formatter.format(ThanhTien))); //lấy lại đơn vị tiền tệ
-                
-                SearchResult2.ListKetQua=searchResults;
-                
+
+                SearchResult2.ListKetQua = searchResults;
+
                 searchResults.add(searchResult);
-                
+
             }
-            
 
         } catch (IOException e) {
             System.out.println(e);
@@ -244,17 +233,18 @@ public class SearchResultTicketController {
         } catch (GeneralSecurityException t) {
             return "loi2";
         }
-        model.addAttribute("searchResults", searchResults);
-        return "search_result";
-    }
-    
-    @RequestMapping(value = "/result", method = RequestMethod.GET)
-    public String resultSearchGET(ModelMap model) throws ParseException
-    {
-        resultSearch(model,MaSanBayDiGlobal, MaSanBayDenGlobal, NgayDiGlobal,  SLNguoiLonGlobal, SLTreEmGlobal, SLEmBeGlobal);
-        return "search_result";
-    }
-    
 
- 
+        model.addAttribute("searchResults", searchResults);
+        model.addAttribute("dshang", dshang);
+
+        return "search_result";
+    }
+
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    public String resultSearchGET(ModelMap model) throws ParseException {
+        resultSearch(model, MaSanBayDiGlobal, MaSanBayDenGlobal, NgayDiGlobal, SLNguoiLonGlobal, SLTreEmGlobal, SLEmBeGlobal);
+
+        return "search_result";
+    }
+
 }
