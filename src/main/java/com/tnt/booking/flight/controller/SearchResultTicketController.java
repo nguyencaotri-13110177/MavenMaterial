@@ -139,7 +139,7 @@ public class SearchResultTicketController {
 
                         dshang.add(a.get());
                         
-                        //System.out.println(dshang.get(0).getFlight_image());
+                        System.out.println(dshang.get(0).getFlight_image());
 
                         
                         //System.out.println(flightCarrier);

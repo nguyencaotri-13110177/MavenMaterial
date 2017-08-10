@@ -37,11 +37,7 @@ public class AirLine {
         this.flight_image = flight_image;
     }
 
-    public AirLine(String flight_code, String flight_name, String flight_image) {
-        this.flight_code = flight_code;
-        this.flight_name = flight_name;
-        this.flight_image = flight_image;
-    }
+   
     
     
     
