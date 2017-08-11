@@ -76,6 +76,10 @@ public class SearchResultTicketController {
 
         List<SearchResult> searchResults = new ArrayList<>();
         List<AirLine> dshang = new ArrayList<>();
+        
+        final String uri = "http://klikmbc.co.id/json/getcodeflights-json";
+                        RestTemplate restTemplate = new RestTemplate();
+                        List<AirLine> ListAirLine = Arrays.asList(restTemplate.getForObject(uri, AirLine[].class));
 
         try {
             httpTransport = GoogleNetHttpTransport.newTrustedTransport();
@@ -128,20 +132,21 @@ public class SearchResultTicketController {
                         FlightInfo flightInfo = segInfo.get(k).getFlight();
                         String flightCarrier = flightInfo.getCarrier();
 
-                        //System.out.println("abc1");
-                        final String uri = "http://klikmbc.co.id/json/getcodeflights-json";
-                        RestTemplate restTemplate = new RestTemplate();
-                        List<AirLine> ListAirLine = Arrays.asList(restTemplate.getForObject(uri, AirLine[].class));
+                        
+                        
 
                         //Lay icon hang phu hop trong List tat ca các hãng
                         Optional<AirLine> a = ListAirLine.stream()
                                 .filter((s) -> flightCarrier.equals(s.getFlight_code())).findFirst();
 
                         dshang.add(a.get());
-                        
-                        System.out.println(dshang.get(0).getFlight_image());
 
+//                        final String uri = "http://localhost:8090/index?mahang="+flightCarrier+"";
+//                        RestTemplate restTemplate = new RestTemplate();
+//                        AirLine mothang = restTemplate.getForObject(uri, AirLine.class);
+//                        dshang.add(mothang);
                         
+
                         //System.out.println(flightCarrier);
                         searchResult.setHang(flightCarrier);
                         List<LegInfo> leg = segInfo.get(k).getLeg();
