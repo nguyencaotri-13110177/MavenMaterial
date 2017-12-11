@@ -55,6 +55,12 @@ public class SearchTicketController {
 
         return "chonvelai";
     }
+    
+    @RequestMapping(value = "/khongtimthaychuyenbay", method = RequestMethod.GET)
+    public String khongtimthaychuyenbay() {
+
+        return "khongtimthaychuyenbay";
+    }
 
     @RequestMapping(value = "/chuyenkhoan", method = RequestMethod.GET)
     public String chuyenkhoan(ModelMap mm) {

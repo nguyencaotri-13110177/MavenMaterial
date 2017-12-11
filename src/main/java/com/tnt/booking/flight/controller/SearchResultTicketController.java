@@ -76,10 +76,10 @@ public class SearchResultTicketController {
 
         List<SearchResult> searchResults = new ArrayList<>();
         List<AirLine> dshang = new ArrayList<>();
-        
+
         final String uri = "http://klikmbc.co.id/json/getcodeflights-json";
-                        RestTemplate restTemplate = new RestTemplate();
-                        List<AirLine> ListAirLine = Arrays.asList(restTemplate.getForObject(uri, AirLine[].class));
+        RestTemplate restTemplate = new RestTemplate();
+        List<AirLine> ListAirLine = Arrays.asList(restTemplate.getForObject(uri, AirLine[].class));
 
         try {
             httpTransport = GoogleNetHttpTransport.newTrustedTransport();
@@ -112,6 +112,9 @@ public class SearchResultTicketController {
             TripsSearchResponse list = qpXExpress.trips().search(parameters).execute(); //Thuc Thi
             List<TripOption> tripResults = list.getTrips().getTripOption();
             FlightInformation.flightTripInfos = tripResults;
+            
+            if(tripResults==null)
+                return "khongtimthaychuyenbay";
 
             String id;
 
@@ -132,9 +135,6 @@ public class SearchResultTicketController {
                         FlightInfo flightInfo = segInfo.get(k).getFlight();
                         String flightCarrier = flightInfo.getCarrier();
 
-                        
-                        
-
                         //Lay icon hang phu hop trong List tat ca các hãng
                         Optional<AirLine> a = ListAirLine.stream()
                                 .filter((s) -> flightCarrier.equals(s.getFlight_code())).findFirst();
@@ -145,8 +145,6 @@ public class SearchResultTicketController {
 //                        RestTemplate restTemplate = new RestTemplate();
 //                        AirLine mothang = restTemplate.getForObject(uri, AirLine.class);
 //                        dshang.add(mothang);
-                        
-
                         //System.out.println(flightCarrier);
                         searchResult.setHang(flightCarrier);
                         List<LegInfo> leg = segInfo.get(k).getLeg();
@@ -230,19 +228,21 @@ public class SearchResultTicketController {
                 searchResults.add(searchResult);
 
             }
-
         } catch (IOException e) {
             System.out.println(e);
             return "loi1";
-
         } catch (GeneralSecurityException t) {
             return "loi2";
         }
+        
+        System.out.println("loiiiiiiiiiii" + searchResults);
 
         model.addAttribute("searchResults", searchResults);
         model.addAttribute("dshang", dshang);
 
+        
         return "search_result";
+
     }
 
     @RequestMapping(value = "/result", method = RequestMethod.GET)
